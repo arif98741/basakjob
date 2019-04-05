@@ -84,10 +84,42 @@ class Publicview extends CI_Controller
     */
     public function search_job($jobcat_id='', $Marketing = '', $location='', $startging='',$ending='')
     {
-       //echo $Marketing; die;
-
+        
         $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
-        $data['jobs']  = $this->db->order_by('job_id','desc')->limit(7)->get('tbl_job')->result_object();
+        if (isset($_GET['jobcat_id'])) {
+            $this->db->like('tbl_job.job_title', $this->input->get('jobcat_id'));
+        }
+
+        if (isset($_GET['location'])) {
+            $this->db->or_where('tbl_job.location', $this->input->get('location'));
+        }
+
+        // if (isset($_GET['starting_salary']))
+        //  {
+        //   $this->db->where('tbl_job.salary ',$this->input->get(30000));
+        // }
+
+
+
+
+
+
+        if (isset($_GET['ending_salary'])) {
+           $this->db->where("tbl_job.salary = '00-00-00 00:00:00')");
+        }
+
+        
+
+        
+
+        
+        $this->db->order_by('job_id','desc')->limit(10);
+        $data['jobs']  = $this->db->get('tbl_job')->result();
+        //echo "<pre>";
+        //print_r($data['jobs']); die;
+
+        
+        
         $data['jobcats']  = $this->db->get('tbl_job_category')->result_object();
 
         $this->load->view('public/lib/header',$data);

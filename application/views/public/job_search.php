@@ -35,13 +35,13 @@
 
 						<div class="col-md-2">
 
-							<input name="text" name="starting_salary" class="form-control" placeholder="Starting salary">
+							<input type="text" name="starting_salary" class="form-control" placeholder="Starting salary">
 
 						</div>
 
 						<div class="col-md-2">
 
-							<input name="text" name="ending_salary" class="form-control" placeholder="Upto tk">
+							<input type="text" name="ending_salary" class="form-control" placeholder="Upto tk">
 
 						</div>
 
