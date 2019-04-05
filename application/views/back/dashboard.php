@@ -106,15 +106,15 @@
             </div>
             <div class="weather-data d-flex">
               <div class="mr-auto">
-                <h4 class="display-3"><?php echo date('h:i:s'); ?>
-                  <span class="symbol"></span><?php echo date('A'); ?></h4>
+                <h4 class="display-3 "><span class="clock"><?php echo date('h:i:s'); ?></span>
+                <span class="symbol"></span><?php echo date('A'); ?></h4>
                   <!-- <p>
                     Mostly Cloudy
                   </p> -->
                 </div>
               </div>
             </div>
-         
+
           </div>
           <!--weather card ends-->
         </div>
@@ -503,3 +503,25 @@
                                 </div>
                               </div>
                             </div> -->
+                            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+                            <script>
+                              $(document).ready(function() {
+                               // alert('yes');
+                                function startTime() {
+                                        var today = new Date();
+                                        var h = today.getHours();
+                                        var m = today.getMinutes();
+                                        var s = today.getSeconds();
+                                        m = checkTime(m);
+                                        s = checkTime(s);
+                                        $('.clock').html(h + ":" + m + ":" + s);
+                                        var t = setTimeout(startTime, 500);
+                                }
+                                startTime();
+                                function checkTime(i) {
+                                  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+                                  return i;
+                                }
+                                                                      
+                              });
+                            </script>
