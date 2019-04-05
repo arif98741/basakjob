@@ -36,6 +36,11 @@ $route['logout'] 		  = 'main/logout';
 $route['admin'] 			= 'admin/index';
 $route['admin/add-job'] 	= 'job/add_job';
 $route['admin/job-list'] 	= 'job/job_list';
+$route['admin/edit_job/(:num)']= 'job/edit_job/$1';
+$route['admin/update_job/(:num)']= 'job/update_job/$1';
+$route['admin/delete_job/(:num)']= 'job/delete_job/$1';
+
+
 
 
 

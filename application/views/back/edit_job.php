@@ -22,20 +22,20 @@
             Add Job 
           </p> -->
 
-
-       <?php if($this->session->success): ?>
+                <?php if($this->session->success): ?>
           <p class="alert alert-success" id="message"><?php echo $this->session->success; ?></p>
        <?php endif; ?>
 
        <?php if($this->session->error): ?>
           <p class="alert alert-error" id="message"><?php echo $this->session->error; ?></p>
        <?php endif; ?> 
+     
 
-         <?php echo form_open('job/save_job',array()) ?>
+         <?php echo form_open('job/update_job/'.$job[0]->job_id,array()) ?>
             <div class="form-group row">
               <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Job Title</label>
               <div class="col-sm-9">
-                <input type="text" name="job_title" class="form-control" id="exampleInputEmail2" placeholder="Enter job title">
+                <input type="text" value="<?php echo $job[0]->job_title; ?>" name="job_title" class="form-control" id="exampleInputEmail2" >
               </div>
             </div>
 
@@ -43,12 +43,12 @@
               <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Category Name </label>
               <div class="col-sm-9">
                 <select name="jobcat_id" id="" class="form-control">
-                  <option value="">Select Option</option>
+                  <option  disabled="">Select Option</option>
 
                   <?php foreach($jobcats as $jobcat){ ?>
 
 
-                  <option value="<?php echo $jobcat->jobcat_id ?>"><?php echo ucfirst($jobcat->jobcat_name); ?></option>
+                  <option value="<?php echo $jobcat->jobcat_id; ?>" <?php if($jobcat->jobcat_id == $job[0]->jobcat_id){ ?> selected <?php } ?>><?php echo ucfirst($jobcat->jobcat_name); ?></option>
 
                 <?php } ?>
 
@@ -61,42 +61,42 @@
               <div class="form-group row">
               <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Company Name</label>
               <div class="col-sm-9">
-                <input type="text" name="company_name" class="form-control" id="exampleInputEmail2" placeholder="Enter Company name">
+                <input type="text"value="<?php echo $job[0]->company_name; ?>" name="company_name" class="form-control" id="exampleInputEmail2" placeholder="Enter Company name">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Salary</label>
               <div class="col-sm-9">
-                <input type="number" name="salary" class="form-control" id="exampleInputEmail2" placeholder="Enter your salary">
+                <input type="number" value="<?php echo $job[0]->salary; ?>"name="salary" class="form-control" id="exampleInputEmail2" placeholder="Enter your salary">
               </div>
             </div>
 
              <div class="form-group row">
               <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Posted Date</label>
               <div class="col-sm-9">
-                <input type="date" name="posted_date" class="form-control" id="exampleInputEmail2" placeholder="Enter your posted_date">
+                <input type="date"value="<?php echo $job[0]->posted_date; ?>" name="posted_date" class="form-control" id="exampleInputEmail2" placeholder="Enter your posted_date">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Deadline</label>
               <div class="col-sm-9">
-                <input type="date" name="deadline" class="form-control" id="exampleInputEmail2" placeholder="Enter your deadline">
+                <input type="date"value="<?php echo $job[0]->deadline; ?>" name="deadline" class="form-control" id="exampleInputEmail2" placeholder="Enter your deadline">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Job Description</label>
               <div class="col-sm-9">
-                <textarea name="job_descri" id="" class="form-control" cols="30" rows="10"></textarea>
+                <textarea name="job_descri" id="" class="form-control" cols="30" rows="10"><?php echo substr($job[0]->job_descri,0,80) ; ?></textarea>
               </div>
             </div>
 
             
 
 
-            <button type="submit" class="btn btn-success mr-2">Submit</button>
+            <button type="submit" class="btn btn-success mr-2">Update</button>
             <button class="btn btn-light">Cancel</button>
           </form>
         </div>
