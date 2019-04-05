@@ -82,7 +82,7 @@ class Job extends CI_Controller
         
         $this->db->insert('tbl_job',$data);
         $this->session->set_flashdata('success', 'Data Added successfully .');
-        redirect('admin/add-job');
+        redirect('admin/job-list');
     }
 
     /*
@@ -164,8 +164,109 @@ class Job extends CI_Controller
 
 
 
+    /*
+    !-----------------------------------------
+    ! Add Job Category
+    !-----------------------------------------
+    */
+    public function add_job_category()
+    {
+        $this->load->view('back/lib/header');
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/add-job-category');
+        $this->load->view('back/lib/footer'); 
+    }
 
-  
+    /*
+    !----------------------------------------
+    ! save_job Category
+    !----------------------------------------
+    */
+    
+    public function save_job_category()
+    { 
+        if (!$this->session->has_userdata('admin')) {
+            redirect('admin');
+        }
+
+        if($this->db->where(['jobcat_name'=>$this->input->post('jobcat_name')])->get('tbl_job_category')->result_id->num_rows >0 )
+        {
+            $this->session->set_flashdata('error', 'Category  already exist');
+            redirect('admin/add-job-category');
+        }
+       
+        $data['jobcat_name'] = ucfirst($this->input->post('jobcat_name'));
+        $this->db->insert('tbl_job_category',$data);
+        $this->session->set_flashdata('success', 'Category Added Successfully .');
+        redirect('admin/job-category-list');
+    }
+
+
+    /*
+    !-----------------------------------------
+    ! Job Category List
+    !-----------------------------------------
+    */
+    public function job_category_list()
+    {
+
+        $data['jobcats']  = $this->db->get('tbl_job_category')->result_object();
+        $this->load->view('back/lib/header',$data);
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/job-category-list');
+        $this->load->view('back/lib/footer'); 
+    }
+
+
+    /*
+    !-----------------------------------------
+    ! Edit Job Category
+    !-----------------------------------------
+    */
+    public function edit_job_category($jobcat_id)
+    {
+
+        $data['jobcat']  = $this->db->where('jobcat_id',$jobcat_id)->get('tbl_job_category')->result_object();
+        $this->load->view('back/lib/header',$data);
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/edit_job_category');
+        $this->load->view('back/lib/footer'); 
+    }
+
+    /*
+    !----------------------------------------
+    ! update job category 
+    !----------------------------------------
+    */
+    
+    public function update_job_category($jobcat_id)
+    { 
+        
+        $data['jobcat_name'] = ucfirst($this->input->post('jobcat_name'));
+        
+        $this->db->set($data);
+        $this->db->where('jobcat_id',$jobcat_id);
+        $this->db->update('tbl_job_category');
+
+        $this->session->set_flashdata('success', 'Category Successfully updated to <strong>'.$data['jobcat_name']."</strong>");
+        redirect('admin/job-category-list');
+    }
+
+    /*
+    !----------------------------------------
+    ! delete jobo category
+    !----------------------------------------
+    */
+    
+    public function delete_job_category($jobcat_id)
+    { 
+        $this->db->where('jobcat_id',$jobcat_id);
+        $this->db->delete('tbl_job_category');
+        $this->session->set_flashdata('success', 'Category Successfully Deleted');
+        redirect('admin/job-category-list');
+    }
+
+    
 
 
 }

@@ -28,7 +28,7 @@
        <?php endif; ?>
 
        <?php if($this->session->error): ?>
-          <p class="alert alert-error" id="message"><?php echo $this->session->error; ?></p>
+          <p class="alert alert-warning" id="message"><?php echo $this->session->error; ?></p>
        <?php endif; ?> 
 
          <?php echo form_open_multipart('job/save_job',array()) ?>

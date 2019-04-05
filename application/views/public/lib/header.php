@@ -24,7 +24,7 @@
 						<a class="nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Jobs</a>
+						<a class="nav-link" href="<?php echo base_url(); ?>jobs">Jobs</a>
 					</li>
 
 					<li class="nav-item">
@@ -32,7 +32,7 @@
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="#">Company</a>
+						<a class="nav-link" href="<?php echo base_url(); ?>jobs/search">Search</a>
 					</li><!-- 
 
 					

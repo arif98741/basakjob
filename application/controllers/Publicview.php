@@ -29,14 +29,72 @@ class Publicview extends CI_Controller
         $data['jobs']  = $this->db->order_by('job_id','desc')->limit(5)->get('tbl_job')->result_object();
         $data['featured_jobs']  = $this->db->where('featured_job','1')->limit(4)->get('tbl_job')->result_object();
 
+
+
         $this->load->view('public/lib/header',$data);
         $this->load->view('public/lib/slider');
         $this->load->view('public/index');
         $this->load->view('public/lib/footer');
         
-        
     }
 
+    /*
+    !-----------------------------------------
+    ! Job Form
+    !-----------------------------------------
+    */
+    public function jobs()
+    {
+        $data['jobcats']  = $this->db->get('tbl_job_category')->result_object();
+        $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
+        $data['jobs']  = $this->db->order_by('job_id','desc')->limit(7)->get('tbl_job')->result_object();
+
+        $this->load->view('public/lib/header',$data);
+        $this->load->view('public/jobs');
+        $this->load->view('public/lib/footer'); 
+    }
+
+
+    /*
+    !-----------------------------------------
+    ! Job Search
+    !-----------------------------------------
+    */
+    public function job_single($id, $slug = '')
+    {
+        $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
+        $this->db->where(['job_id'=>$id]);
+        $this->db->limit(7);
+        $this->db->order_by('job_id','desc');
+        $data['job']  = $this->db->get('tbl_job')->result_object();
+        
+        //echo "<pre>";
+       // print_r($data['job']); die;
+
+        $this->load->view('public/lib/header',$data);
+        $this->load->view('public/job_single');
+        $this->load->view('public/lib/footer'); 
+    }
+
+
+     /*
+    !-----------------------------------------
+    ! Job Search
+    !-----------------------------------------
+    */
+    public function search_job($jobcat_id='', $Marketing = '', $location='', $startging='',$ending='')
+    {
+       //echo $Marketing; die;
+
+        $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
+        $data['jobs']  = $this->db->order_by('job_id','desc')->limit(7)->get('tbl_job')->result_object();
+        $data['jobcats']  = $this->db->get('tbl_job_category')->result_object();
+
+        $this->load->view('public/lib/header',$data);
+        $this->load->view('public/job_search');
+        $this->load->view('public/lib/footer'); 
+    }
+    
 
 
 }

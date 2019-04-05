@@ -41,11 +41,11 @@
 									<img src="<?php echo base_url(); ?>uploads/job/<?php echo $job->job_thumbnail; ?>" alt="" class="img-fluid">
 								</div>
 								<div class="cold-md-9">
-									<h5><a href="#" class=" text-muted"><?php echo $job->job_title; ?></a></h5>
+									<h5><a href="<?php echo base_url();?>jobs/<?php echo $job->job_id;  ?>/<?php echo str_replace(' ', '-', $job->job_title); ?>" class=" text-muted"><?php echo $job->job_title; ?></a></h5>
 									<small><strong>Company: <?php echo $job->company_name; ?></strong></small><br>
 									<small><strong>Salary Range:  <?php echo $job->salary; ?> to  <?php echo $job->salary + 5000; ?></strong></small><br>
 									<small><strong>Posted on:</strong> <?php echo $job->posted_date; ?> </small> ,<small><strong>Application Deadline:</strong> <?php echo $job->deadline; ?> </small><br>
-									<small><?php echo substr($job->job_descri, 0,100); ?>  <a href="#" class="btn btn-link">Read more</a></small>
+									<small><?php echo substr($job->job_descri, 0,100); ?>  <a href="<?php echo base_url();?>jobs/<?php echo $job->job_id;  ?>/<?php echo str_replace(' ', '-', $job->job_title); ?>" class="btn btn-link">Read more</a></small>
 								</div>
 							</div><br>
 

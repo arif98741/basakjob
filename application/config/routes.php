@@ -27,7 +27,6 @@ $route['public_notice']   = 'main/public_notice';
 $route['logout'] 		  = 'main/logout';
 
 
-
 /*
 !---------------------------------------------------
 ! 	Admin
@@ -39,6 +38,16 @@ $route['admin/job-list'] 	= 'job/job_list';
 $route['admin/edit_job/(:num)']= 'job/edit_job/$1';
 $route['admin/update_job/(:num)']= 'job/update_job/$1';
 $route['admin/delete_job/(:num)']= 'job/delete_job/$1';
+$route['admin/add-job-category']= 'job/add_job_category';
+$route['admin/job-category-list']= 'job/job_category_list';
+$route['admin/edit-job-category/(:num)']= 'job/edit_job_category/$1';
+$route['admin/update-job-category/(:num)']	= 'job/update_job_category/$1';
+$route['admin/delete-job-category/(:num)']	= 'job/delete_job_category/$1';
+
+
+$route['jobs']				 = 'publicview/jobs';
+$route['jobs/(:num)/(:any)'] = 'publicview/job_single/$1/$2';
+$route['jobs/search']		 = 'publicview/search_job';
 
 
 
