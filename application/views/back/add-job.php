@@ -31,7 +31,7 @@
           <p class="alert alert-error" id="message"><?php echo $this->session->error; ?></p>
        <?php endif; ?> 
 
-         <?php echo form_open('job/save_job',array()) ?>
+         <?php echo form_open_multipart('job/save_job',array()) ?>
             <div class="form-group row">
               <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Job Title</label>
               <div class="col-sm-9">
@@ -85,6 +85,15 @@
                 <input type="date" name="deadline" class="form-control" id="exampleInputEmail2" placeholder="Enter your deadline">
               </div>
             </div>
+
+             <div class="form-group row">
+              <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Job Thumbnail</label>
+              <div class="col-sm-9">
+                <input type="file" name="job_thumbnail" class="form-control" id="exampleInputEmail2">
+              </div>
+            </div>
+
+            
 
             <div class="form-group row">
               <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Job Description</label>

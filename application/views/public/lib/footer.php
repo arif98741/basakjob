@@ -1,6 +1,4 @@
-
-<!-- footer part -->
-	<br>
+<br>
 	<div id="footer-part">
 		<div class="container-fluid">
 			<div class="row">
@@ -30,11 +28,12 @@
 		</div>
 	</div>
 
-	<script src="<?php echo base_url(); ?>assets/public/jquery/dist/jquery.min.js"></script>
+	<script src="<?php echo base_url(); ?>asset/public/node_modules/jquery/dist/jquery.min.js"></script>
 	<!-- <script src="node_modules/popper.js/dist/popper.min.js"></script> -->
-	<script src="<?php echo base_url(); ?>assets/public/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="<?php echo base_url(); ?>asset/public/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script>
 		$(document).ready(function() {
+
 		});
 	</script>
 

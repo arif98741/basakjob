@@ -1,18 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/public/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/public/@fortawesome/fontawesome-free/css/fontawesome.min.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/public/css/style.css">
-	<title>Document</title>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/asset/css/style.css">
+	<title>Job Site - Homepage</title>
 </head>
 <body>
 	<!-- header part -->
 	<!-- Navigation Part -->
 	<section id="nav-bar">
 		<nav class="navbar navbar-expand-lg navbar-light ">
-			<a class="navbar-brand" href="#"><img src="<?php echo base_url(); ?>asset/img/logo/logo.png" alt=""></a>
+			<a class="navbar-brand" href="#"><img src="<?php echo base_url(); ?>asset/public/asset/img/logo/logo.png" alt=""></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>

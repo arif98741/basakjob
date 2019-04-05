@@ -58,7 +58,26 @@ class Job extends CI_Controller
         $data['company_name'] = $this->input->post('company_name');
         $data['salary'] = $this->input->post('salary');
         $data['posted_date'] = date('Y-m-d');
-        $data['deadline'] = date('Y-m-d');
+        $data['deadline']    = date('Y-m-d');
+        if (!empty($_FILES['job_thumbnail']['name'])) {
+
+            $config['upload_path'] = './uploads/job/';
+            $config['allowed_types'] = 'gif|jpg|png|gif|JPG|PNG|JPEG|GIF';
+            $config['max_size']     = 10000;
+            $config['max_width']    = 10000;
+            $config['max_height']   = 10000;
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('job_thumbnail')) {
+                
+            } else {
+                $upload_data = array('upload_data' => $this->upload->data());
+                $data['job_thumbnail'] = $upload_data['upload_data']['file_name'];
+            }
+        }else{
+            $data['job_thumbnail'] = 'default.png';
+        }
         
         
         $this->db->insert('tbl_job',$data);
@@ -73,12 +92,12 @@ class Job extends CI_Controller
     */
     public function job_list()
     {
-      $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
-       $data['jobs']  = $this->db->get('tbl_job')->result_object();
+        $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
+        $data['jobs']  = $this->db->get('tbl_job')->result_object();
+        
 
-
-      //echo "<pre>";
-      //print_r($data['jobs']); die;
+        //echo "<pre>";
+        //print_r($data['jobs']); die;
 
         $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
