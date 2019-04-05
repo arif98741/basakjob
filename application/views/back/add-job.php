@@ -105,12 +105,18 @@
             
 
 
-            <button type="submit" class="btn btn-success mr-2">Submit</button>
+            <!-- <button type="submit" class="btn btn-success mr-2">Submit</button> -->
+            <button type="submit" class="btn btn-success btn-fw">
+                          <i class="mdi mdi-check"></i>Save</button>
             <button class="btn btn-light">Cancel</button>
           </form>
         </div>
       </div>
     </div>
+    <script src="https://cdn.ckeditor.com/4.11.3/standard/ckeditor.js"></script>
+<script>
+        CKEDITOR.replace( 'job_descri' );
+</script>
 
 
 

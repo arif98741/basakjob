@@ -17,11 +17,19 @@
             </div>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url(); ?>" target="1">
+              <i class="menu-icon mdi mdi-web"></i>
+              <span class="menu-title">View Site</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url(); ?>admin/dashboard">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+          
+          
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-content-copy"></i>
@@ -39,7 +47,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="pages/forms/basic_elements.html">
               <i class="menu-icon mdi mdi-backup-restore"></i>
               <span class="menu-title">Form elements</span>
@@ -88,6 +96,6 @@
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
         </ul>
       </nav>

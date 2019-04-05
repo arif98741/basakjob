@@ -48,7 +48,7 @@
                      <tr>
                     <td ><?php echo $i ;?></td>
                     <td ><?php echo $job->job_title; ?></td>
-                    <td ><?php echo $job->jobcat_id; ?></td>
+                    <td ><?php echo ucfirst( $job->jobcat_name); ?></td>
                     <td ><?php echo $job->company_name; ?></td>
                     
                     <td ><?php echo $job->posted_date; ?></td>

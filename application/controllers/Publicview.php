@@ -26,7 +26,7 @@ class Publicview extends CI_Controller
     {
         $data['jobcats'] = $this->db->order_by('jobcat_name')->get('tbl_job_category')->result_object();
         $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
-        $data['jobs']  = $this->db->limit(5)->get('tbl_job')->result_object();
+        $data['jobs']  = $this->db->order_by('job_id','desc')->limit(5)->get('tbl_job')->result_object();
         $data['featured_jobs']  = $this->db->where('featured_job','1')->limit(4)->get('tbl_job')->result_object();
 
         $this->load->view('public/lib/header',$data);

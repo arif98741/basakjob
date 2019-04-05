@@ -38,7 +38,7 @@
 						<?php foreach ($jobs as $job) {  ?>
 							<div class="row">
 								<div class="cold-md-3">
-									<img src="<?php echo base_url(); ?>asset/public/asset/img/3.jpg" alt="" class="img-fluid">
+									<img src="<?php echo base_url(); ?>uploads/job/<?php echo $job->job_thumbnail; ?>" alt="" class="img-fluid">
 								</div>
 								<div class="cold-md-9">
 									<h5><a href="#" class=" text-muted"><?php echo $job->job_title; ?></a></h5>

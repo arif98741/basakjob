@@ -96,7 +96,8 @@
             
 
 
-            <button type="submit" class="btn btn-success mr-2">Update</button>
+            <button type="submit" class="btn btn-success btn-fw">
+                          <i class="mdi mdi-check"></i>Update</button>
             <button class="btn btn-light">Cancel</button>
           </form>
         </div>
@@ -105,4 +106,8 @@
 
 
 
+ <script src="https://cdn.ckeditor.com/4.11.3/standard/ckeditor.js"></script>
+<script>
+        CKEDITOR.replace( 'job_descri' );
+</script>
 
