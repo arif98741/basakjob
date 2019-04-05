@@ -71,7 +71,7 @@
 					<div class="card" style="width: 18rem;" style="margin: 2px;">
 						<img class="card-img-top img-fluid" src="<?php echo base_url(); ?>uploads/job/<?php echo $featured_job->job_thumbnail; ?>" alt="Card image cap" style="width: 100%; height: 150px;">
 						<div class="card-body">
-							<h5 class="card-title"><?php echo $featured_job->job_title; ?></h5>
+							<h6 class="card-title"><?php echo $featured_job->job_title; ?></h6>
 							<p class="card-text"><?php echo substr($featured_job->job_descri, 0,200); ?>  </p>
 							<a href="#" class="btn btn-primary">Read more</a>
 						</div>
