@@ -107,7 +107,7 @@
             <div class="weather-data d-flex">
               <div class="mr-auto">
                 <h4 class="display-3 "><span class="clock"><?php echo date('h:i:s'); ?></span>
-                <span class="symbol"></span><?php echo date('A'); ?></h4>
+                <span class="symbol"></span><?php //echo date('A'); ?></h4>
                   <!-- <p>
                     Mostly Cloudy
                   </p> -->
