@@ -1,69 +1,114 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html dir="ltr" lang="en">
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/asset/css/style.css">
-	<title>Job Site - Homepage</title>
+	<!-- Meta Tags -->	
+	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+	<meta charset="utf-8">
+	<meta name="description" content="learapress || Education & Courses HTML5 Template">
+	<meta name="keywords" content="corporate, consulting, college, courses, education, learning management system, online education, responsive, school, training center, university, modern & creative, teaching">
+	<meta name="author" content="Theme Garbage">
+	<!-- Title -->
+	<title> Jobs Portal</title>
+	<!-- Favicon Icon -->
+	<link rel="icon" type="<?php echo base_url(); ?>asset/public/img/logo2019-04-04-18-57-53_5ca6379160493.png" href="img/favicon.png">	
+
+
+
+	<!-- Stylesheets Start -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet"> 
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/css/magnific-popup.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/css/animate.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/css/main.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/style.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/css/meanmenu.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/public/css/responsive.css">	
+
 </head>
-<body>
-	<!-- header part -->
-	<!-- Navigation Part -->
-	<section id="nav-bar">
-		<nav class="navbar navbar-expand-lg navbar-light ">
-			<a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>asset/public/asset/img/logo/logo.png" alt=""></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item ">
-						<a class="nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="<?php echo base_url(); ?>jobs">Jobs</a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="#">Category</a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url(); ?>jobs/search">Search</a>
-					</li><!-- 
-
-					
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Dropdown
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Something else here</a>
+<body class="home-v1">
+	<!-- Header Start -->
+	<header>
+		<!-- Header Topbar Start -->
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-sm-8">
+						<div class="header-left">
+							<ul>
+								<li><i class="fa fa-phone"></i> 01733-199222</li>							
+								<li><i class="fa fa-envelope-o"></i> Sohagcomputer2009@gmail.com</li>
+							</ul>	
 						</div>
-					</li> -->
-					<li class="nav-item">
-						<a class="nav-link" href="profile.html" tabindex="-1" aria-disabled="false">Profile</a>
-					</li>
-
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Login/Create Account
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Login</a>
-							<a class="dropdown-item" href="#">Create Account</a>
+					</div>				
+					<div class="col-md-5 col-sm-4">
+						<div class="header-right-div">
+							<div class="soical-profile">
+								<span class="social-title">Follow Us</span>
+								<ul>
+									<li><a href="http://facebook.com"><i class="fa fa-facebook"></i></a></li>
+									<li><a href=""><i class="fa fa-twitter"></i></a></li>
+									<li><a href=""><i class="fa fa-google"></i></a></li>
+									<li><a href=""><i class="fa fa-skype"></i></a></li>
+								</ul>
+							</div>
 						</div>
-					</li>
-
-					
-				</ul>
-				
+					</div>
+				</div>
 			</div>
-		</nav>
-	</section>
+		</div>
+		<!-- Header Topbar End -->
+		<!-- Main Bar Start -->
+		<div class="hd-sec">
+			<div class="container">
+				<div class="row">
+					<!-- Logo Start -->
+					<div class="col-md-3 col-sm-12 col-xs-8">
+						<div class="logo">
+							<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>asset/public/img/logo2019-04-04-18-57-53_5ca6379160493.png"  max-height="100" alt=""/></a>
+						</div>
+					</div>	
+					<!-- Logo End -->
+					<!-- Main Menu Start -->
+					<div class="mobile-nav-menu"></div>						
+					<div class="col-md-7 col-sm-9 menu-center">
+						<div class="menu">
+							<nav id="main-menu" class="main-menu">
+								<ul>
+									<li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i></a></li>									
+									<li><a href="<?php echo base_url(); ?>">Home</a></li>									
+									<li><a href="course.php">Category </a></li>	
+									<li><a href="page.php?id=51">Search Job</a></li>	
+									<li><a href="#">Login/Create Account</a>
+										<ul>
+											<li><a href="notice.php">Login</a></li>
+											<li><a href="notice.php">Create Account</a></li>
+											
+
+										</ul>								
+									</li>
+
+									<li><a href="#">Contact</a></li>
+								</ul>
+							</nav>
+
+						</div>					
+					</div>	
+					<!-- Main Menu End -->
+					<!-- Main Apply Button Start -->
+					<div class="col-md-2 col-sm-3 applay-button-area">
+						<div class="applay-button">
+							<input type="text" class="form-control" placeholder="Search Job">
+						</div>					
+					</div>
+					<!-- Main Apply Button End -->
+				</div>
+			</div>
+		</div>
+		<!-- Main Bar End -->
+	</header>
+	<!-- Header End -->		
+
+
+
