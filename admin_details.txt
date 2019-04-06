@@ -1,29 +1,7 @@
+
+//------mysql connection-----------
 'hostname' => 'localhost',
-'username' => 'ioyussn_admissio',
+'username' => 'phpdark_basak',
 'password' => 'explore+88',
-'database' => 'ioyussn_admisstion',
+'database' => 'phpdark_basak',
 'dbdriver' => 'mysqli',
-
------------CPANEL--------
-| Domain: admission.exploreeims.com
-| Ip: 192.185.107.125 👎
-| HasCgi: y
-| UserName: ioyussn
-| PassWord: wBvlv;xxN&H$
-
-
-
-//------atartuk-----------
-'hostname' => 'localhost',
-'username' => 'ataturk_admissio',
-'password' => 'explore+88',
-'database' => 'ataturk_admission',
-'dbdriver' => 'mysqli',
-
-
-CPANEL
-ataturkschool.edu.bd/cpanel
-user: ataturk
-pass: S6.10kvm[tea
-
-/------------admin login----------------
