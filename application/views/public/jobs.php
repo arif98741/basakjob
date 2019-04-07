@@ -1,5 +1,5 @@
 
-	<!-- Header End -->		
+<!-- Header End -->		
 
 
 
@@ -26,9 +26,14 @@
 			<!-- Course Single Inner Start -->	
 
 			<?php foreach($jobs as $job){ ?>
-							<div class="col-md-4 col-sm-6">
+				<div class="col-md-4 col-sm-6">
 					<div class="course-inner">
 						<div class="course-thumb" >
+							<?php if(empty($job->job_thumbnail) || $job->job_thumbnail == null): ?>
+
+								<img src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" alt=""/>
+
+							<?php endif; ?>
 							<img src="<?php echo base_url(); ?>uploads/job/<?php echo $job->job_thumbnail;?>"  alt=""/>
 							
 							<div class="teacher-thumb">
@@ -57,20 +62,20 @@
 						<div class="course-info">
 							<ul>
 							</li>
-								<li><a href="#"><i class="fa fa-map-marker"></i><?php echo $job->location ;?> </a></li>
-								<li><a href="#"><i class="fa fa-calendar"></i><?php echo $job->deadline ;?></a></li>
-							</ul>
-						</div>
-					</div>	
+							<li><a href="#"><i class="fa fa-map-marker"></i><?php echo $job->location ;?> </a></li>
+							<li><a href="#"><i class="fa fa-calendar"></i><?php echo $job->deadline ;?></a></li>
+						</ul>
+					</div>
 				</div>	
+			</div>	
 
-					<?php } ?>
-				<!-- Course Single Inner End -->		
-				
-			
-			 	
-		</div>			
-	</div>
+		<?php } ?>
+		<!-- Course Single Inner End -->		
+		
+		
+		
+	</div>			
+</div>
 </div>
 <!-- Course Section End -->		
 <!-- Footer Section Start -->

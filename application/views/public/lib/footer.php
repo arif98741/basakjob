@@ -6,8 +6,8 @@
 				<!-- Single Footer Widget Start -->
 				<div class="col-md-3 col-sm-6">
 					<div class="footer-wedget-one">
-						<h2>Motto</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus iure nesciunt asperiores, expedita vero dolore quas vel accusamus perferendis! Deleniti.<a href="page.php?id=1" class="btn btn-link">বিস্তারিত</a></p>	<hr>
-						<a href="index.html"><img src="<?php echo base_url();?>asset/public/img/logo2019-04-04-18-57-53_5ca6379160493.png" alt=""/></a>
+						<h2>Motto</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus iure nesciunt asperiores, expedita vero dolore quas vel accusamus perferendis! Deleniti.<a href="page.php?id=1" class="btn btn-link">read more..</a></p>	<!-- <hr> -->
+						<!-- <a href="index.html"><img src="<?php //echo base_url();?>asset/public/img/logo2019-04-04-18-57-53_5ca6379160493.png" alt=""/></a> -->
 					</div>
 				</div>	
 				<!-- Single Footer Widget End -->
@@ -60,7 +60,7 @@
 										<span class="icon"><i class="fa fa-envelope-o"></i></span>
 									</div>				
 									<div class="media-body">
-										<span class="inner-text">Sohagcomputer2009@gmail.com</span>
+										<span class="inner-text">admin@gmail.com</span>
 									</div>											
 								</div>					
 							</div>								
@@ -70,7 +70,7 @@
 										<span class="icon"><i class="fa fa-phone"></i></span>
 									</div>				
 									<div class="media-body">
-										<span class="inner-text">01733-199222,-</span>
+										<span class="inner-text">01733-199222</span>
 									</div>											
 								</div>					
 							</div>											

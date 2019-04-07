@@ -3,6 +3,5 @@
 .editorconfig
 application/logs/*
 works/*
-uploads/*
 *.zip
 system/cache/*

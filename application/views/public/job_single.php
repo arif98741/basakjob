@@ -44,7 +44,13 @@
 					</div>				
 				</div>
 				<!-- Course Info Start-->	
-				<div class="col-md-3"><img src="<?php echo base_url(); ?>uploads/job/<?php echo $job[0]->job_thumbnail;?>"  alt=""/>
+				<div class="col-md-3">
+					<?php if(empty($job[0]->job_thumbnail) || $job[0]->job_thumbnail == null): ?>
+
+										<img src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" alt=""/>
+
+									<?php endif; ?>
+					<img src="<?php echo base_url(); ?>uploads/job/<?php echo $job[0]->job_thumbnail;?>"  alt=""/>
 					<div class="event-details-info">
 					
 						<h2 style="font-size: 18px !important;">Course Information</h2>

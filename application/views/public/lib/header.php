@@ -37,8 +37,8 @@
 					<div class="col-md-7 col-sm-8">
 						<div class="header-left">
 							<ul>
-								<li><i class="fa fa-phone"></i> 01733-199222</li>							
-								<li><i class="fa fa-envelope-o"></i> Sohagcomputer2009@gmail.com</li>
+								<li><i class="fa fa-phone"></i> 01711-101010</li>							
+								<li><i class="fa fa-envelope-o"></i> admin@gmail.com</li>
 							</ul>	
 						</div>
 					</div>				
@@ -69,7 +69,7 @@
 					<!-- Logo Start -->
 					<div class="col-md-3 col-sm-12 col-xs-8">
 						<div class="logo">
-							<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>asset/public/img/logo2019-04-04-18-57-53_5ca6379160493.png"  max-height="100" alt=""/></a>
+							<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>asset/public/img/logo2019-04-04-18-57-53_5ca6379160493.png"  style="height: 50px;" alt=""/></a>
 						</div>
 					</div>	
 					<!-- Logo End -->
