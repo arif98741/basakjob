@@ -14,7 +14,7 @@
 				<!-- Single Footer Widget Start -->
 				<div class="col-md-3 col-sm-6">
 					<div class="footer-widget-menu">
-						<h2>কোর্স সমূহ</h2>
+						<h2>Courses</h2>
 						<ul>
 							<li><a href="<?php base_url(); ?>contact">Contact</a></li>
 							<li><a href="<?php base_url(); ?>contact">Contact</a></li>
@@ -88,7 +88,7 @@
 			<div class="row">
 				<div class="col-md-12 col-sm-12">
 					<div class="copy-right">
-						<p>সর্বসত্ব সংরক্ষিত  ২০১৯ &copy; সোহাগ কম্পিউটার এন্ড ট্রেনিং সেন্টার <span><a href="http://exploreit.com.bd"> কারিগরি সহযোগীতায় এক্সপ্লোর আইটি</a></span></p>
+						<p>All Rights Reserved  2019 &copy; Jobs Website <span><a href="#"> Developed By - Basak, Shiplu, Mirana</a></span></p>
 					</div>
 				</div>				
 			</div>

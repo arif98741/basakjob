@@ -52,6 +52,9 @@
 									<li><a href=""><i class="fa fa-google"></i></a></li>
 									<li><a href=""><i class="fa fa-skype"></i></a></li>
 								</ul>
+								<span class="social-title" > <a href="#">Create Account</a></span>
+								| 
+								<span class="social-title">Login</span>
 							</div>
 						</div>
 					</div>
@@ -77,17 +80,18 @@
 							<nav id="main-menu" class="main-menu">
 								<ul>
 									<li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i></a></li>									
-									<li><a href="<?php echo base_url(); ?>">Home</a></li>									
+									<li><a href="<?php echo base_url(); ?>">Home</a></li>	
+									<li><a href="<?php echo base_url(); ?>jobs">Jobs</a></li>									
 									<li><a href="course.php">Category </a></li>	
 									<li><a href="page.php?id=51">Search Job</a></li>	
-									<li><a href="#">Login/Create Account</a>
+									<!-- <li><a href="#">Login/Create Account</a>
 										<ul>
 											<li><a href="notice.php">Login</a></li>
 											<li><a href="notice.php">Create Account</a></li>
 											
 
 										</ul>								
-									</li>
+									</li> -->
 
 									<li><a href="#">Contact</a></li>
 								</ul>

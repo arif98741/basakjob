@@ -46,9 +46,13 @@ $route['admin/delete-job-category/(:num)']	= 'job/delete_job_category/$1';
 
 
 $route['jobs']				 = 'publicview/jobs';
-$route['jobs/(:num)/(:any)'] = 'publicview/job_single/$1/$2';
+$route['jobs/(:num)'] = 'publicview/job_single/$1';
 $route['jobs/search']		 = 'publicview/search_job';
-$route['jobs/search/(:any)/(:any)/(:any)']		 = 'publicview/search_job/$1/$2/$3';
+$route['jobs/search/(:any)/(:any)/(:any)'] = 'publicview/search_job/$1/$2/$3';
+$route['jobs/job_single/(:num)']	       = 'publicview/job_single/$1';
+$route['profile']	       = 'publicview/profile';
+$route['registration']	   = 'registration/registration';
+
 
 
 

@@ -1,26 +1,21 @@
 
 
-	    <title><?php echo $job[0]->job_title;?></title>
+	    <title><?php echo $jobs[0]->job_title;?></title>
 	<!-- Page Heading Section Start -->	
-	<div class="pagehding-sec">
-		<div class="images-overlay"></div>		
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="page-heading">
-						<h1> <?php echo $job[0]->job_title;?>   </h1>
-					</div>
-				 <span style="font-size: 16px;" class="course-price"><?php echo $job[0]->company_name;?></span> 
-				 					
-				</div>				
-			</div>
-		</div>
-	</div>
+	
 	<!-- Page Heading Section End -->	
 	<!-- Course Section Start -->	
 	<div style="padding-top:10px;" class="course-details-page pt-100 pb-70">
 		<div class="container">
 			<div class="row">
+
+				<div style="" class="col-md-3"><img src="<?php echo base_url(); ?>uploads/job/<?php echo $jobs[0]->job_thumbnail;?>"  alt=""/>
+					<div class="">
+					
+						
+						
+					</div>	
+				</div>
 		 
 				<div class="col-md-9">
 					<div class="tab-content">	
@@ -29,11 +24,16 @@
 							<div class="row">				
 								<div class="col-md-12">				
 									<div class="course-details">	
-											
+											<h2 style="font-size: 18px !important;">Course Information</h2>
 	 
-										<p>	 
-										<p style="text-align: justify;"><?php echo $job[0]->job_descri;?></p> 
-										 </p>
+										<ul>
+		 
+							<li>Salary:<span> <?php echo $jobs[0]->salary;?></span></li>								
+							<li>Location:<span><?php echo $jobs[0]->location;?></span></li>
+							<li>Posted On:<span> <?php echo $jobs[0]->posted_date;?> </span></li>
+							<li>Apply Deadline:<span> <?php echo $jobs[0]->deadline;?> </span></li>	
+			 
+						</ul>
 									</div>																
 								</div>								
 							</div>																
@@ -44,23 +44,7 @@
 					</div>				
 				</div>
 				<!-- Course Info Start-->	
-				<div class="col-md-3"><img src="<?php echo base_url(); ?>uploads/job/<?php echo $job[0]->job_thumbnail;?>"  alt=""/>
-					<div class="event-details-info">
 					
-						<h2 style="font-size: 18px !important;">Course Information</h2>
-						<ul>
-		 
-							<li>Salary:<span> <?php echo $job[0]->salary;?></span></li>								
-							<li>Location:<span><?php echo $job[0]->location;?></span></li>
-							<li>Posted On:<span> <?php echo $job[0]->posted_date;?> </span></li>
-							<li>Apply Deadline:<span> <?php echo $job[0]->deadline;?> </span></li>	
-			 
-						</ul>
-						<div class="get-coruse-btn">
-							<a href="#">Apply</a>
-						</div>
-					</div>	
-				</div>	
 				<!-- Course Info End-->	
 			</div>	
 		</div>	

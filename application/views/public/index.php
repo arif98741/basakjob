@@ -7,9 +7,9 @@
 				<!-- About Us Short Description Start -->	
 				<div class="col-md-6">			
 					<div class="about-desc">
-						<h1>আমাদের কথা</h1>
-						<p><p style="text-align: justify;">আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা ব্যবস্থার সাথে অত্যন্ত ঘনিষ্ট ভাবে জড়িত।&nbsp;<span lang="BN-BD">পৃথিবীর সকল দে</span>আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা ব্যবস্থার সাথে অত্যন্ত ঘনিষ্ট ভাবে জড়িত।&nbsp;<span lang="BN-BD">পৃথিবীর সকল দে</span>আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা ব্যবস্থার সাথে অত্যন্ত ঘনিষ্ট ভাবে জড়িত।&nbsp;<span lang="BN-BD">পৃথিবীর সকল দে</span>আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা ব্যবস্থার সাথে অত্যন্ত ঘনিষ্ট ভাবে জড়িত।&nbsp;<span lang="BN-BD">পৃথিব�</p>
-						<a href="page.php?id=1" class="about-btn">বিস্তারিত</a>
+						<h1> Introductuion</h1>
+						<p><p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia totam voluptatibus error libero adipisci at veritatis, nulla, temporibus similique itaque blanditiis! Atque magnam cupiditate recusandae veritatis quaerat vero ipsa nesciunt aperiam? Dolor, porro veritatis! In rerum, porro. Harum, dicta quidem est provident voluptates totam, soluta ullam sit eos natus, amet ipsum perferendis dolor! Necessitatibus eaque praesentium eos. Repudiandae veniam corrupti repellat beatae enim voluptates architecto qui, numquam quibusdam neque nihil doloremque, consequatur fugiat ipsam sapiente. Fugiat atque dicta, inventore vitae. Ratione eveniet tempora amet consequuntur quos optio, sapiente dignissimos, cumque delectus itaque perferendis quod facere laboriosam deleniti distinctio, facilis voluptas!<span lang="BN-BD">�</p>
+						<a href="page.php?id=1" class="about-btn">Details</a>
 					</div>				
 				</div>
 				<!-- About Us Short Description End -->	
@@ -37,7 +37,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="sec-title">
-						<h1>আমাদের কোর্স সমূহ</h1>
+						<h1>Our Courses </h1>
 					</div>
 				</div>
 			</div>	
@@ -46,21 +46,23 @@
 				<div class="course-list-sec">		
 					<div class="all-course">
 						<!-- Course Single Inner Start -->	
+
+						<?php foreach($jobs as $job){ ?>
 						
 												<div class="course-inner">
 							<div class="course-thumb">
-								<img src="<?php echo base_url(); ?>asset/public/midea/featuredimage/featuredimage2019-04-03-23-12-27_5ca521bb4f59d.jpg" alt=""/>
+								<img src="<?php echo base_url(); ?>uploads/job/<?php echo $job->job_thumbnail;?>" alt=""/>
 								 
 								<div class="teacher-thumb">
 									<img src="<?php echo base_url(); ?>asset/public/img/teacher_1.png" alt=""/>
 								</div>
 								 
 								<div class="readmore-button">
-									<a href="course_details.php?id=33">বিস্তারিত</a>
+									<a href="course_details.php?id=33">Details</a>
 								</div>
 							</div>
 							<div class="course-meta">
-								<span class="course-price">৳ 8000/-</span>
+								<span class="course-price"><?php echo $job->salary;?></span>
 								<span class="course-rating">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
@@ -70,85 +72,20 @@
 								</span>
 							</div>						
 							<div class="course-desc">
-								<h2><a href="course_details.php?id=33">গ্রাফিক্স ডিজাইন </a></h2>
-								<p><p style="text-align: justify;">আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রয</p>
+								<h2><a href="course_details.php?id=33"><?php echo $job->job_title ;?></a></h2>
+								<span style="font-size: 16px;" class="course-price"><?php echo $job->company_name;?></span>
+								<p><p style="text-align: justify;"><?php echo substr($job->job_descri , 0,100);?></p>
 							</div>
 							<div class="course-info">
 								<ul>
-									<li><a href="#"><i class="fa fa-user"></i>আসন 30</a></li>
-									<li><a href="#"><i class="fa fa-clock-o"></i>দৈনিক 2 ঘণ্টা </a></li>
-									<li><a href="#"><i class="fa fa-calendar"></i>25  দিন</a></li>
+									
+									<li><a href="#"><i class="fa fa-map-marker"></i><?php echo $job->location ;?> </a></li>
+									<li><a href="#"><i class="fa fa-calendar"></i><?php echo $job->deadline ;?></a></li>
 								</ul>
 							</div>
 						</div>	
-						 									<div class="course-inner">
-							<div class="course-thumb">
-								<img src="<?php echo base_url(); ?>asset/public/midea/featuredimage/featuredimage2019-04-03-22-40-35_5ca51a43b1d87.jpg" alt=""/>
-								 
-								<div class="teacher-thumb">
-									<img src="<?php echo base_url(); ?>asset/public/img/teacher_1.png" alt=""/>
-								</div>
-								 
-								<div class="readmore-button">
-									<a href="course_details.php?id=36">বিস্তারিত</a>
-								</div>
-							</div>
-							<div class="course-meta">
-								<span class="course-price">৳ 5000/-</span>
-								<span class="course-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-									<i class="fa fa-star-o"></i>
-								</span>
-							</div>						
-							<div class="course-desc">
-								<h2><a href="course_details.php?id=36">মাইক্রোসফট অফিস কোর্স</a></h2>
-								<p><p>নিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শি</p>
-							</div>
-							<div class="course-info">
-								<ul>
-									<li><a href="#"><i class="fa fa-user"></i>আসন 25</a></li>
-									<li><a href="#"><i class="fa fa-clock-o"></i>দৈনিক 200 ঘণ্টা </a></li>
-									<li><a href="#"><i class="fa fa-calendar"></i>45  দিন</a></li>
-								</ul>
-							</div>
-						</div>	
-						 									<div class="course-inner">
-							<div class="course-thumb">
-								<img src="<?php echo base_url(); ?>asset/public/midea/featuredimage/featuredimage2019-04-04-01-10-08_5ca53d50dff5b.jpg" alt=""/>
-								 
-								<div class="teacher-thumb">
-									<img src="<?php echo base_url(); ?>asset/public/img/teacher_1.png" alt=""/>
-								</div>
-								 
-								<div class="readmore-button">
-									<a href="course_details.php?id=41">বিস্তারিত</a>
-								</div>
-							</div>
-							<div class="course-meta">
-								<span class="course-price">৳ 5000/-</span>
-								<span class="course-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-									<i class="fa fa-star-o"></i>
-								</span>
-							</div>						
-							<div class="course-desc">
-								<h2><a href="course_details.php?id=41">ওয়েব ডিজাইন & ডেভেলপমেন্ট</a></h2>
-								<p><p>আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকে�</p>
-							</div>
-							<div class="course-info">
-								<ul>
-									<li><a href="#"><i class="fa fa-user"></i>আসন 5</a></li>
-									<li><a href="#"><i class="fa fa-clock-o"></i>দৈনিক 200 ঘণ্টা </a></li>
-									<li><a href="#"><i class="fa fa-calendar"></i>45  দিন</a></li>
-								</ul>
-							</div>
-						</div>	
+						<?php } ?>
+						 		
 						 			 		
 						<!-- Course Single Inner End -->		
 					</div>																			
@@ -171,7 +108,7 @@
 						</div>
 						<div class="countup-text">
 							<h2 class="counter"><p>05</p></h2>
-							<h4>প্রশিক্ষক</h4>						
+							<h4>Total Job</h4>						
 						</div>
 					</div>
 				</div>	
@@ -184,7 +121,7 @@
 						</div>					
 						<div class="countup-text">
 							<h2 class="counter"><p>320</p></h2>
-							<h4>ছাত্রী/ছাত্রী</h4>						
+							<h4>Total Company</h4>						
 						</div>
 					</div>
 				</div>	
@@ -197,7 +134,7 @@
 						</div>						
 						<div class="countup-text">
 							<h2 class="counter"><p>100</p></h2>
-							<h4>প্রশিক্ষন সম্পূর্ণ</h4>						
+							<h4>Total Courses</h4>						
 						</div>
 					</div>				
 				</div>		
@@ -210,7 +147,7 @@
 						</div>						
 						<div class="countup-text">
 							<h2 class="counter"><p>5</p>      </h2>
-							<h4>সনদ প্রদান</h4>						
+							<h4>Award</h4>						
 						</div>
 					</div>
 				</div>
@@ -226,66 +163,31 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="sec-title">
-						<h1>কেন আমাদের প্রশিক্ষন গ্রহন করবেন?</h1>
+						<h1>Our Featured Jobs</h1>
 					</div>
 				</div>
 			</div>		
 			<div class="row">	
 				<div class="col-md-12">
 					<div class="why-choose-all">
+
+						<?php foreach($jobs as $job){ ?>
 						<!-- Single Why Choose Inner Start -->	
 												<div class="why-choose-inner">
 							<div class="why-choose-thumb">
-								<img src="<?php echo base_url(); ?>asset/public/midea/featuredimage/featuredimage2019-04-03-22-48-28_5ca51c1cb0456.jpg" alt=""/>
+								<img src="<?php echo base_url(); ?>uploads/job/<?php echo $job->job_thumbnail;?>" alt=""/>
 								<div class="why-choose-icon">
 									<img src="<?php echo base_url(); ?>asset/public/img/icon/employees.png" alt=""/>
 								</div>								
 							</div>
 							<div class="why-choose-text">
-								<h2><a href="page.php?id=25">প্রশিক্ষনের আধুনিক সুযোগ ‍সুবিধা</a></h2>
-								<p><p style="text-align: justify;">আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা</p>
+								<h2><a href="page.php?id=25"><?php echo $job->job_title ;?></a></h2>
+								<p><p style="text-align: justify;"><?php echo substr($job->job_descri , 0,100);?></p>
 							</div>
 						</div>
 						<!-- Single Why Choose Inner End -->	
-						 								<div class="why-choose-inner">
-							<div class="why-choose-thumb">
-								<img src="<?php echo base_url(); ?>asset/public/midea/featuredimage/featuredimage2019-04-03-22-50-03_5ca51c7b1d4e3.jpg" alt=""/>
-								<div class="why-choose-icon">
-									<img src="<?php echo base_url(); ?>asset/public/img/icon/employees.png" alt=""/>
-								</div>								
-							</div>
-							<div class="why-choose-text">
-								<h2><a href="page.php?id=37">অভিজ্ঞ প্রশিক্ষক</a></h2>
-								<p><p style="text-align: justify;">আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা</p>
-							</div>
-						</div>
-						<!-- Single Why Choose Inner End -->	
-						 								<div class="why-choose-inner">
-							<div class="why-choose-thumb">
-								<img src="<?php echo base_url(); ?>asset/public/midea/featuredimage/featuredimage2019-04-04-01-30-26_5ca54212eadcf.jpg" alt=""/>
-								<div class="why-choose-icon">
-									<img src="<?php echo base_url(); ?>asset/public/img/icon/employees.png" alt=""/>
-								</div>								
-							</div>
-							<div class="why-choose-text">
-								<h2><a href="page.php?id=38">ব্যাচ অনুযায়ী ক্লাস</a></h2>
-								<p><p style="text-align: justify;">আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা</p>
-							</div>
-						</div>
-						<!-- Single Why Choose Inner End -->	
-						 								<div class="why-choose-inner">
-							<div class="why-choose-thumb">
-								<img src="<?php echo base_url(); ?>asset/public/midea/featuredimage/featuredimage2019-04-03-23-01-28_5ca51f284d8a3.jpg" alt=""/>
-								<div class="why-choose-icon">
-									<img src="<?php echo base_url(); ?>asset/public/img/icon/employees.png" alt=""/>
-								</div>								
-							</div>
-							<div class="why-choose-text">
-								<h2><a href="page.php?id=40">সার্টিফিকেট প্রদান</a></h2>
-								<p><p style="text-align: justify;">আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা</p>
-							</div>
-						</div>
-						<!-- Single Why Choose Inner End -->	
+							<?php } ?>
+					
 						 		 			
 					</div>				
 				</div>	
@@ -304,12 +206,12 @@
 					<div class="all-testimonial">
 														<!-- Single Testimonial Item Start -->
 						<div class="single-testimonial">							
-							<p style="text-align:center!important"><p style="text-align: justify;">আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা ব্যবস্থার সাথে অত্যন্ত ঘনিষ্ট ভাবে জড়িত।&nbsp;<span lang="BN-BD">পৃথিবীর সকল দে</span>আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা ব্যবস্থার সাথে অত্যন্ত ঘনিষ্ট ভাবে জড়িত।&nbsp;<span lang="BN-BD">পৃথিব .......</p>
+							<p style="text-align:center!important"><p style="text-align: justify;">Ipsum dolor sit amet, consectetur adipisicing elit. Tempora aliquid voluptas natus asperiores doloremque, omnis ad, recusandae sunt pariatur quo, provident unde nulla accusantium, quisquam velit atque neque. Numquam illo vitae, quibusdam provident reprehenderit laudantium, perferendis cum eligendi modi voluptatem voluptatum, nemo iste. Ipsam, voluptatem corporis deleniti quas architecto officiis?&nbsp;<span lang="BN-BD">de</p>
 							<div class="testimonial">
 								<div class="inner">
 									<div class="client-info">
-										<h2>জামাল আহম্মদী</h2>
-										<h3>প্রশিক্ষনার্থী</h3>								
+										<h2>Rahim</h2>
+										<h3>Employee</h3>								
 									</div>	
 								</div>							
 								<div class="inner">
@@ -321,12 +223,12 @@
 						</div>		
 												<!-- Single Testimonial Item Start -->
 						<div class="single-testimonial">							
-							<p style="text-align:center!important"><p style="text-align: justify;">আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা ব্যবস্থার সাথে অত্যন্ত ঘনিষ্ট ভাবে জড়িত।&nbsp;<span lang="BN-BD">পৃথিবীর সকল দে</span>আধুনিক ও যুগোপযোগী শিক্ষা ছাড়া আত্বনির্ভরশীল,দক্ষ ও মর্যাদা সম্পন্ন জাতি গঠন সম্ভব নয়। । তথ্য-প্রযুক্তি আজকের শিক্ষা ব্যবস্থার সাথে অত্যন্ত ঘনিষ্ট ভাবে জড়িত।&nbsp;<span lang="BN-BD">পৃথিব .......</p>
+							<p style="text-align:center!important"><p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non magnam, ab at, modi libero nemo mollitia debitis unde iure voluptate ea eaque nam corporis iste, pariatur! Perferendis, aliquam, excepturi. Itaque facere, consequuntur, a repellendus necessitatibus doloribus. A ducimus doloremque minima nobis quaerat necessitatibus eveniet maxime et, molestias repudiandae ut dignissimos?&nbsp;<span lang="BN-BD">df .......</p>
 							<div class="testimonial">
 								<div class="inner">
 									<div class="client-info">
-										<h2>রোকসানা আক্তার</h2>
-										<h3>প্রশিক্ষনার্থী</h3>								
+										<h2>Kristen</h2>
+										<h3>Employee</h3>								
 									</div>	
 								</div>							
 								<div class="inner">

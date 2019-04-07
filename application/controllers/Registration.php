@@ -58,4 +58,18 @@ class Registration extends CI_Controller
         return $smsresult;
     }
 
+     /*
+    !--------------------------------------------------------
+    !     registration   Homepage
+    !--------------------------------------------------------
+    */
+    public function registration()
+    {
+        $this->load->view('public/lib/header');
+      
+        $this->load->view('public/registration');
+        $this->load->view('public/lib/footer');
+
+    }
+
 }
