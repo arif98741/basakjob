@@ -20,7 +20,7 @@
 </div>
 <!-- Page Heading Section End -->	
 <!-- Course Section Start -->	
-<div class="course-page-sec pt-100 pb-70">
+<div class="course-page-sec pt-80 pb-70">
 	<div class="container">
 		<div class="row">			
 			<!-- Course Single Inner Start -->	

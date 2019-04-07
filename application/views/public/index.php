@@ -394,9 +394,9 @@
 								</div>	
 
 								<!-- Single Blog Item End -->
-									
+
 								<!-- Single Blog Item End -->
-									
+
 								<!-- Single Blog Item End -->
 								
 								<!-- Single Blog Item End -->
@@ -410,3 +410,13 @@
 			</div>
 			<!-- Blog Section End -->		
 			<!-- Footer Section Start -->
+			<script src="<?php echo base_url(); ?>asset/public/js/jquery-2.2.4.min.js"></script>
+			<script>
+				$(document).ready(function() {
+					//alert('hi');
+					setTimeout(function(){
+						$('.success').slideUp(500);
+					},5000);
+
+				});
+			</script>

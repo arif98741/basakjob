@@ -1,5 +1,13 @@
 
+	<div class="container">
+		<?php if($this->session->success): ?>
+            <p class="alert alert-success success" id="message"><?php echo $this->session->success; ?></p>
+          <?php endif; ?>
 
+          <?php if($this->session->error): ?>
+            <p class="alert alert-warning" id="message"><?php echo $this->session->error; ?></p>
+          <?php endif; ?>
+	</div>
  
 	<!-- Slider Section Start -->
 	<div class="slider">

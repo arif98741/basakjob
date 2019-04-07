@@ -1,3 +1,4 @@
+
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -30,46 +31,146 @@ class Registration extends CI_Controller
         redirect('/');
 
     }
-
-   
-    /*
-    !-------------------------------------
-    !    Send Message to Applicant
-    !    After Completing Application
-    !------------------------------------
-    */
-    public function sendMessage($name='',$mobile='',$message)
-    {
-        return false;
-        
-        $token = "77f9a4d2c5ea51913e1cd7624705239c";
-        $url   = "http://sms.greenweb.com.bd/api.php";
-
-        $data = array(
-            'to'        => $mobile,
-            'message'   => $message,
-            'token'     => "$token"
-        ); // Add parameters in key value
-        $ch = curl_init(); // Initialize cURL
-        curl_setopt($ch, CURLOPT_URL,$url);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $smsresult = curl_exec($ch); //execute statement to send sms
-        return $smsresult;
-    }
-
      /*
     !--------------------------------------------------------
     !     registration   Homepage
     !--------------------------------------------------------
     */
+    public function save_empployee()
+    {
+      // echo "<pre>";
+      // print_r($_POST); die;
+       date_default_timezone_set('Asia/Dhaka');
+
+       if($this->db->where('contact',$this->input->post('contact'))->get('tbl_employee')->result_id->num_rows >0)
+       {
+            $this->session->set_flashdata('error', 'Contact Number Already Exist');
+            redirect("registration");
+       }
+
+       if($this->db->where('email',$this->input->post('email'))->get('tbl_employee')->result_id->num_rows >0)
+       {
+            $this->session->set_flashdata('error', 'Email Already Exist');
+            redirect("registration");
+       }
+
+
+        $data['emp_name']   =  $this->input->post('name');
+        $data['email']   =  $this->input->post('email');
+        $data['password']=  md5(md5($this->input->post('password'))); 
+        $data['contact'] =  $this->input->post('contact');
+        $data['address'] =  $this->input->post('address');
+        $data['ssc_gpa'] =  $this->input->post('ssc_gpa');
+        $data['hsc_gpa'] =  $this->input->post('hsc_gpa');
+        $data['experience'] = $this->input->post('experience');
+        $data['preveous_company'] =$this->input->post('preveous_company');
+        $data['added_date']= date('Y-m-d');
+        $this->db->insert('tbl_employee',$data);
+
+        $this->session->set_flashdata('error', 'Your registration is successful. Login');
+        redirect("login");
+    }
+
+    /*
+    !--------------------------------------------------------
+    !     Save Employee
+    !--------------------------------------------------------
+    */
     public function registration()
     {
-        $this->load->view('public/lib/header');
-      
         $this->load->view('public/registration');
-        $this->load->view('public/lib/footer');
-
     }
+
+    
+
+    /*
+    !--------------------------------------------------------
+    !     Login
+    !--------------------------------------------------------
+    */
+    public function login()
+    {
+        if ($this->session->has_userdata('employee_login'))
+        {
+            redirect('/');
+        } 
+        $this->load->view('public/login');
+    }
+
+    /*
+    !--------------------------------------------------------
+    !   Login Action For Employee 
+    !--------------------------------------------------------
+    */
+    public function login_action()
+    {
+        
+        $email      = $this->input->post("username");
+        $password   = md5(md5($this->input->post("password")));
+
+        $status = $this->db->where(['email'=>$email, 'password'=>$password])->get('tbl_employee');
+
+        if ($status->result_id->num_rows > 0) {
+           $data     = $status->result_object();
+           $session  = array(
+                    'employee_login'       => true,
+                    'employee_id'    => $data[0]->emp_id,
+                    'employee_name'  => $data[0]->emp_name,
+                    'employee_contact' => $data[0]->contact,
+                    'employee_image' => $data[0]->image
+            );
+           
+           $this->session->set_userdata($session);
+           // echo "<pre>";
+           // print_r($this->session); die;
+           $this->session->set_flashdata('success', 'Successfully Logged in');
+           redirect('/');
+       }else{
+            $this->session->set_flashdata('error', 'Username or password not matched');
+            redirect("login");
+       }
+    }
+
+    /* 
+    !--------------------------------------------------------
+    !     Login
+    !--------------------------------------------------------
+    */
+    public function logout()
+    {
+       $this->session->sess_destroy();
+       
+        redirect('/');
+    }
+
+    /*
+    !--------------------------------------------------------
+    !      Proifle  View
+    !--------------------------------------------------------
+    */
+    public function profile()
+    {
+        if (!$this->session->has_userdata('employee_login'))
+        {
+            $this->session->set_flashdata('error', 'First login to access profile');
+            redirect('/');
+        } 
+        $status = $this->db->where('emp_id',$this->session->employee_id)->get('tbl_employee');
+        if ($status->result_id->num_rows < 1) {
+            
+            redirect('/');
+        }
+
+
+
+        $data['profile'] = $status->result_object();
+        //echo "<pre>";
+        //print_r($data);
+        $this->load->view('public/lib/header',$data);
+        $this->load->view('public/profile');
+        $this->load->view('public/lib/footer');
+        
+    }
+
 
 }

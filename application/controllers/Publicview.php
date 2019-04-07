@@ -81,71 +81,68 @@ class Publicview extends CI_Controller
     ! Job Search
     !-----------------------------------------
     */
-    public function search_job($jobcat_id='', $Marketing = '', $location='', $startging='',$ending='')
+    public function search_job()
     {
-        
-        $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
-        if (isset($_GET['jobcat_id'])) {
-            $this->db->like('tbl_job.job_title', $this->input->get('jobcat_id'));
-        }
+        $search = '';
+        $data['searchkey'] = '';
+        $this->db->join('tbl_job_category','tbl_job.jobcat_id = tbl_job_category.jobcat_id');
 
         if (isset($_GET['location'])) {
-            $this->db->or_where('tbl_job.location', $this->input->get('location'));
+
+            $data['searchkey']  .= "Location: ".$this->input->get('location');
+            $this->db->or_like('location', $this->input->get('location'));
+
+        } elseif(isset($_GET['category'])){
+
+            $data['searchkey']  .= ". Category: ".$this->input->get('category');
+            $this->db->or_like('tbl_job_category.jobcat_name', $this->input->get('category'));
+
+        }elseif(isset($_GET['starting_salary'])  && isset($_GET['ending_salary'])){
+
+            $data['searchkey']  .= ". Starting Salary: ".$this->input->get('starting_salary'). " and Ending Salary ".$this->input->get('ending_salary');
+
+            $this->db->where('tbl_job.salary >=', $this->input->get('starting_salary'));
+            $this->db->where('tbl_job.salary <=', $this->input->get('ending_salary'));
+        }else{
+            $data['searchkey']  .= $search;
+            $this->db->like('job_title', $this->input->get('search'));
+            $this->db->or_like('location', $this->input->get('search'));
+            $this->db->or_like('salary', $this->input->get('search'));
         }
 
-        // if (isset($_GET['starting_salary']))
-        //  {
-        //   $this->db->where('tbl_job.salary ',$this->input->get(30000));
-        // }
-
-
-
-
-
-
-        if (isset($_GET['ending_salary'])) {
-           $this->db->where("tbl_job.salary = '00-00-00 00:00:00')");
-        }
-
-        
-
-        
-
-        
         $this->db->order_by('job_id','desc')->limit(10);
         $data['jobs']  = $this->db->get('tbl_job')->result();
-        //echo "<pre>";
-        //print_r($data['jobs']); die;
-
+       
+        $data['jobcats']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
         
-        
-        $data['jobcats']  = $this->db->get('tbl_job_category')->result_object();
 
         $this->load->view('public/lib/header',$data);
-        $this->load->view('public/job_search');
+        $this->load->view('public/search');
         $this->load->view('public/lib/footer'); 
     }
 
-     /*
-    !--------------------------------------------------------
-    !      Proifle  View
-    !--------------------------------------------------------
+       /*
+    !-----------------------------------------
+    ! Job Search
+    !-----------------------------------------
     */
-    public function profile()
+    public function jobs_category($category="")
     {
-         $data['jobcats'] = $this->db->order_by('jobcat_name')->get('tbl_job_category')->result_object();
-         $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
-         $data['jobs']  = $this->db->order_by('job_id','desc')->limit(3)->get('tbl_job')->result_object();
-        $data['featured_jobs']  = $this->db->where('featured_job','1')->limit(4)->get('tbl_job')->result_object();
-
-
+       // echo $this->input->get('category'); die;
+        $this->db->join('tbl_job_category','tbl_job.jobcat_id = tbl_job_category.jobcat_id');
+        $this->db->where('tbl_job_category.jobcat_name',$this->input->get('category'));
+        $this->db->order_by('job_id','desc')->limit(10);
+        $data['jobs']  = $this->db->get('tbl_job')->result();
+       
+        $data['jobcats']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
+        $data['category'] = $this->input->get('category');
 
         $this->load->view('public/lib/header',$data);
-        
-        $this->load->view('public/profile');
-        $this->load->view('public/lib/footer');
-        
+        $this->load->view('public/jobs_category');
+        $this->load->view('public/lib/footer'); 
     }
+
+
     
 
 

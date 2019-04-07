@@ -52,67 +52,66 @@
 									<li><a href=""><i class="fa fa-google"></i></a></li>
 									<li><a href=""><i class="fa fa-skype"></i></a></li>
 								</ul>
-								<span class="social-title" > <a href="#">Create Account</a></span>
-								| 
-								<span class="social-title">Login</span>
+								<?php if(!$this->session->employee_login): ?>
+									<span class="social-title" > <a href="<?php echo base_url();?>registration">Create Account</a></span>
+									| 
+									<span class="social-title"><a href="<?php echo base_url();?>login">Login</a></span>
+
+									<?php else: ?>
+										<span class="social-title"><a href="<?php echo base_url();?>profile">Profile</a></span> | <span class="social-title"><a href="<?php echo base_url();?>logout">Logout</a></span>
+									<?php endif; ?>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Header Topbar End -->
-		<!-- Main Bar Start -->
-		<div class="hd-sec">
-			<div class="container">
-				<div class="row">
-					<!-- Logo Start -->
-					<div class="col-md-3 col-sm-12 col-xs-8">
-						<div class="logo">
-							<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>asset/public/img/logo2019-04-04-18-57-53_5ca6379160493.png"  style="height: 50px;" alt=""/></a>
+					<!-- Header Topbar End -->
+					<!-- Main Bar Start -->
+					<div class="hd-sec">
+						<div class="container">
+							<div class="row">
+								<!-- Logo Start -->
+								<div class="col-md-3 col-sm-12 col-xs-8">
+									<div class="logo">
+										<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>asset/public/img/logo2019-04-04-18-57-53_5ca6379160493.png"  style="height: 50px;" alt=""/></a>
+									</div>
+								</div>	
+								<!-- Logo End -->
+								<!-- Main Menu Start -->
+								<div class="mobile-nav-menu"></div>						
+								<div class="col-md-6 col-sm-9 menu-center">
+									<div class="menu">
+										<nav id="main-menu" class="main-menu">
+											<ul>
+												<li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i></a></li>									
+												<li><a href="<?php echo base_url(); ?>">Home</a></li>	
+												<li><a href="<?php echo base_url(); ?>jobs">Jobs</a></li>									
+												<li><a href="<?php echo base_url(); ?>jobs/category">Category </a></li>	
+												<li><a href="<?php echo base_url(); ?>jobs/search">Search Job</a></li>	
+												<li><a href="#">Contact</a></li>
+											</ul>
+										</nav>
+
+									</div>					
+								</div>	
+								<!-- Main Menu End -->
+								<!-- Main Apply Button Start -->
+								<div class="col-md-3 col-sm-3 applay-button-area">
+									<form action="<?php echo base_url(); ?>jobs/search">
+										<div class="applay-button">
+											<input type="text" name="search" class="form-control" placeholder="Search Job">
+											<button type="submit" class="btn btn-primary" style="margin-top: 4px">Search</button>
+										</div>		
+									</form>			
+								</div>
+								<!-- Main Apply Button End -->
+							</div>
 						</div>
-					</div>	
-					<!-- Logo End -->
-					<!-- Main Menu Start -->
-					<div class="mobile-nav-menu"></div>						
-					<div class="col-md-7 col-sm-9 menu-center">
-						<div class="menu">
-							<nav id="main-menu" class="main-menu">
-								<ul>
-									<li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i></a></li>									
-									<li><a href="<?php echo base_url(); ?>">Home</a></li>	
-									<li><a href="<?php echo base_url(); ?>jobs">Jobs</a></li>									
-									<li><a href="course.php">Category </a></li>	
-									<li><a href="page.php?id=51">Search Job</a></li>	
-									<!-- <li><a href="#">Login/Create Account</a>
-										<ul>
-											<li><a href="notice.php">Login</a></li>
-											<li><a href="notice.php">Create Account</a></li>
-											
-
-										</ul>								
-									</li> -->
-
-									<li><a href="#">Contact</a></li>
-								</ul>
-							</nav>
-
-						</div>					
-					</div>	
-					<!-- Main Menu End -->
-					<!-- Main Apply Button Start -->
-					<div class="col-md-2 col-sm-3 applay-button-area">
-						<div class="applay-button">
-							<input type="text" class="form-control" placeholder="Search Job">
-						</div>					
 					</div>
-					<!-- Main Apply Button End -->
-				</div>
-			</div>
-		</div>
-		<!-- Main Bar End -->
-	</header>
-	<!-- Header End -->		
+					<!-- Main Bar End -->
+				</header>
+				<!-- Header End -->		
 
 
 

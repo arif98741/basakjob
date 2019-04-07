@@ -110,6 +110,14 @@
 <script src="<?php echo base_url(); ?>asset/public/js/waypoints.min.js"></script>
 <script src="<?php echo base_url(); ?>asset/public/js/jquery.meanmenu.min.js"></script>
 <script src="<?php echo base_url(); ?>asset/public/js/custom.js"></script>
+<script>
+	$(document).ready(function() {
+		setTimeout(function(){
+			$('.success').hide();
+		},5000);
+		
+	});
+</script>
 <!-- Scripts Js End -->	
 </body>
 </html>				
