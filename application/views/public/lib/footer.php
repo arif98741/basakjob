@@ -70,7 +70,7 @@
 										<span class="icon"><i class="fa fa-phone"></i></span>
 									</div>				
 									<div class="media-body">
-										<span class="inner-text">01733-199222</span>
+										<span class="inner-text">017XXXXXX</span>
 									</div>											
 								</div>					
 							</div>											
