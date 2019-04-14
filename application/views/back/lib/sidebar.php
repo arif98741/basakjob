@@ -4,7 +4,7 @@
             <div class="nav-link">
               <div class="user-wrapper">
                 <div class="profile-image">
-                  <img src="<?php echo base_url(); ?>asset/back/images/faces/face1.jpg" alt="profile image">
+                  <img src="https://user-images.githubusercontent.com/17213478/55688195-b7cb5280-5997-11e9-890f-0a9fff5d4c09.jpg">
                 </div>
                 <div class="text-wrapper">
                   <p class="profile-name">Admin</p>

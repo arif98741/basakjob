@@ -54,6 +54,7 @@ class Job extends CI_Controller
        
         $data['job_title'] = $this->input->post('job_title');
         $data['jobcat_id'] = $this->input->post('jobcat_id');
+        $data['skill'] = $this->input->post('skill');
         $data['job_descri'] = $this->input->post('job_descri');
         $data['company_name'] = $this->input->post('company_name');
         $data['salary'] = $this->input->post('salary');

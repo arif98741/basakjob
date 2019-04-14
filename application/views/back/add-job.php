@@ -23,29 +23,29 @@
           </p> -->
 
 
-       <?php if($this->session->success): ?>
-          <p class="alert alert-success" id="message"><?php echo $this->session->success; ?></p>
-       <?php endif; ?>
+          <?php if($this->session->success): ?>
+            <p class="alert alert-success" id="message"><?php echo $this->session->success; ?></p>
+          <?php endif; ?>
 
-       <?php if($this->session->error): ?>
-          <p class="alert alert-warning" id="message"><?php echo $this->session->error; ?></p>
-       <?php endif; ?> 
+          <?php if($this->session->error): ?>
+            <p class="alert alert-warning" id="message"><?php echo $this->session->error; ?></p>
+          <?php endif; ?> 
 
-         <?php echo form_open_multipart('job/save_job',array()) ?>
-            <div class="form-group row">
-              <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Job Title</label>
-              <div class="col-sm-9">
-                <input type="text" name="job_title" class="form-control" id="exampleInputEmail2" placeholder="Enter job title">
-              </div>
+          <?php echo form_open_multipart('job/save_job',array()) ?>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Job Title</label>
+            <div class="col-sm-9">
+              <input type="text" name="job_title" class="form-control" id="exampleInputEmail2" placeholder="Enter job title">
             </div>
+          </div>
 
-            <div class="form-group row">
-              <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Category Name </label>
-              <div class="col-sm-9">
-                <select name="jobcat_id" id="" class="form-control">
-                  <option value="">Select Option</option>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Category Name </label>
+            <div class="col-sm-9">
+              <select name="jobcat_id" id="" class="form-control">
+                <option value="">Select Option</option>
 
-                  <?php foreach($jobcats as $jobcat){ ?>
+                <?php foreach($jobcats as $jobcat){ ?>
 
 
                   <option value="<?php echo $jobcat->jobcat_id ?>"><?php echo ucfirst($jobcat->jobcat_name); ?></option>
@@ -54,69 +54,77 @@
 
 
 
-                </select>
-              </div>
+              </select>
             </div>
+          </div>
 
-              <div class="form-group row">
-              <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Company Name</label>
-              <div class="col-sm-9">
-                <input type="text" name="company_name" class="form-control" id="exampleInputEmail2" placeholder="Enter Company name">
-              </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Skill</label>
+            <div class="col-sm-9">
+              <input type="text" name="skill" class="form-control" id="exampleInputEmail2" placeholder="Enter Skill">
             </div>
+          </div>
 
-            <div class="form-group row">
-              <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Salary</label>
-              <div class="col-sm-9">
-                <input type="number" name="salary" class="form-control" id="exampleInputEmail2" placeholder="Enter your salary">
-              </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Company Name</label>
+            <div class="col-sm-9">
+              <input type="text" name="company_name" class="form-control" id="exampleInputEmail2" placeholder="Enter Company name">
             </div>
+          </div>
 
-             <div class="form-group row">
-              <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Posted Date</label>
-              <div class="col-sm-9">
-                <input type="date" name="posted_date" class="form-control" id="exampleInputEmail2" placeholder="Enter your posted_date">
-              </div>
+
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Salary</label>
+            <div class="col-sm-9">
+              <input type="number" name="salary" class="form-control" id="exampleInputEmail2" placeholder="Enter your salary">
             </div>
+          </div>
 
-            <div class="form-group row">
-              <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Deadline</label>
-              <div class="col-sm-9">
-                <input type="date" name="deadline" class="form-control" id="exampleInputEmail2" placeholder="Enter your deadline">
-              </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Posted Date</label>
+            <div class="col-sm-9">
+              <input type="date" name="posted_date" class="form-control" id="exampleInputEmail2" placeholder="Enter your posted_date">
             </div>
+          </div>
 
-             <div class="form-group row">
-              <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Job Thumbnail</label>
-              <div class="col-sm-9">
-                <input type="file" name="job_thumbnail" class="form-control" id="exampleInputEmail2">
-              </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Deadline</label>
+            <div class="col-sm-9">
+              <input type="date" name="deadline" class="form-control" id="exampleInputEmail2" placeholder="Enter your deadline">
             </div>
+          </div>
 
-            
-
-            <div class="form-group row">
-              <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Job Description</label>
-              <div class="col-sm-9">
-                <textarea name="job_descri" id="" class="form-control" cols="30" rows="10"></textarea>
-              </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Job Thumbnail</label>
+            <div class="col-sm-9">
+              <input type="file" name="job_thumbnail" class="form-control" id="exampleInputEmail2">
             </div>
+          </div>
 
-            
 
 
-            <!-- <button type="submit" class="btn btn-success mr-2">Submit</button> -->
-            <button type="submit" class="btn btn-success btn-fw">
-                          <i class="mdi mdi-check"></i>Save</button>
+          <div class="form-group row">
+            <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Job Description</label>
+            <div class="col-sm-9">
+              <textarea name="job_descri" id="" class="form-control" cols="30" rows="10"></textarea>
+            </div>
+          </div>
+
+
+
+
+          <!-- <button type="submit" class="btn btn-success mr-2">Submit</button> -->
+          <button type="submit" class="btn btn-success btn-fw">
+            <i class="mdi mdi-check"></i>Save</button>
             <button class="btn btn-light">Cancel</button>
           </form>
         </div>
       </div>
     </div>
     <script src="https://cdn.ckeditor.com/4.11.3/standard/ckeditor.js"></script>
-<script>
-        CKEDITOR.replace( 'job_descri' );
-</script>
+    <script>
+      CKEDITOR.replace( 'job_descri' );
+    </script>
 
 
 
