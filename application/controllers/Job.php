@@ -29,14 +29,15 @@ class Job extends CI_Controller
     public function add_job()
     {
 
-       $data['jobcats']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
+        $data['jobcats']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
 
-        //echo "<pre>";
-        //print_r($data['jobcats']); die;
+        $data['industries']  = $this->db->order_by('industry_name','asc')->get('tbl_industry')->result_object();
+
+        $data['companies']  = $this->db->order_by('company_name','asc')->get('tbl_company')->result_object();
 
         $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
-        $this->load->view('back/add-job');
+        $this->load->view('back/job/add-job');
         $this->load->view('back/lib/footer'); 
     }
 
@@ -51,15 +52,31 @@ class Job extends CI_Controller
         if (!$this->session->has_userdata('admin')) {
             redirect('admin');
         }
+
+        echo '<pre>';
+
+        print_r($_POST); exit;
+
        
-        $data['job_title'] = $this->input->post('job_title');
-        $data['jobcat_id'] = $this->input->post('jobcat_id');
-        $data['skill'] = $this->input->post('skill');
-        $data['job_descri'] = $this->input->post('job_descri');
-        $data['company_name'] = $this->input->post('company_name');
-        $data['salary'] = $this->input->post('salary');
+        $data['job_title'] = $this->input->post('job_title'); 
+        $data['location'] = $this->input->post('location'); 
+        $data['jobcat_id'] = $this->input->post('jobcat_id'); 
+        $data['industry_id'] = $this->input->post('industry_id'); 
+        $data['company_id'] = $this->input->post('company_id'); 
+        $data['skill'] = $this->input->post('skill'); 
+        $data['experience'] = $this->input->post('experience'); 
+        $data['starting_salary'] = $this->input->post('starting_salary'); 
+        $data['ending_salary'] = $this->input->post('ending_salary'); 
+        $data['education'] = $this->input->post('education'); 
+        $data['posted_date'] = $this->input->post('posted_date'); 
+        $data['deadline'] = $this->input->post('deadline'); 
+        $data['job_description'] = $this->input->post('job_description');
         $data['posted_date'] = date('Y-m-d');
         $data['deadline']    = date('Y-m-d');
+        $this->db->insert('tbl_job',$data);
+        $insert_id = $this->db->insert_id();
+
+
         if (!empty($_FILES['job_thumbnail']['name'])) {
 
             $config['upload_path'] = './uploads/job/';
@@ -132,7 +149,6 @@ class Job extends CI_Controller
     
     public function update_job($job_id)
     { 
-
         $data['job_title'] = $this->input->post('job_title');
         $data['jobcat_id'] = $this->input->post('jobcat_id');
         $data['job_descri'] = $this->input->post('job_descri');
@@ -153,7 +169,6 @@ class Job extends CI_Controller
     ! delete View
     !----------------------------------------
     */
-    
     public function delete_job($job_id)
     { 
 
@@ -162,8 +177,6 @@ class Job extends CI_Controller
         $this->session->set_flashdata('success', 'Successfully deleted Data.');
         redirect('admin/job-list');
     }
-
-
 
     /*
     !-----------------------------------------
@@ -202,7 +215,6 @@ class Job extends CI_Controller
         redirect('admin/job-category-list');
     }
 
-
     /*
     !-----------------------------------------
     ! Job Category List
@@ -210,8 +222,7 @@ class Job extends CI_Controller
     */
     public function job_category_list()
     {
-
-        $data['jobcats']  = $this->db->get('tbl_job_category')->result_object();
+        $data['jobcats']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
         $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
         $this->load->view('back/job-category-list');
@@ -239,7 +250,6 @@ class Job extends CI_Controller
     ! update job category 
     !----------------------------------------
     */
-    
     public function update_job_category($jobcat_id)
     { 
         
@@ -258,7 +268,6 @@ class Job extends CI_Controller
     ! delete jobo category
     !----------------------------------------
     */
-    
     public function delete_job_category($jobcat_id)
     { 
         $this->db->where('jobcat_id',$jobcat_id);
@@ -267,7 +276,202 @@ class Job extends CI_Controller
         redirect('admin/job-category-list');
     }
 
-    
+    /*
+    !-----------------------------------------
+    ! Industry List
+    !-----------------------------------------
+    */
+    public function industry_list()
+    {
+        $data['industries']  = $this->db->order_by('industry_name','asc')->get('tbl_industry')->result_object();
+        $this->load->view('back/lib/header',$data);
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/industry/industry_list');
+        $this->load->view('back/lib/footer'); 
+    }
 
+    /*
+    !-----------------------------------------
+    ! Add Inustry
+    !-----------------------------------------
+    */
+    public function add_industry()
+    {
+        $this->load->view('back/lib/header');
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/industry/add_industry');
+        $this->load->view('back/lib/footer'); 
+    }
+
+    /*
+    !----------------------------------------
+    ! save industry
+    !----------------------------------------
+    */
+    public function save_industry()
+    { 
+        $data['industry_name'] = ucfirst($this->input->post('industry_name'));
+        if($this->db->where(['industry_name'=>$this->input->post('industry_name')])->get('tbl_industry')->result_id->num_rows >0 )
+        {
+            $this->session->set_flashdata('error', 'Industry <strong>'.$data["industry_name"].'</strong> already exist');
+            redirect('admin/industry-list');
+        }
+       
+       
+        $this->db->insert('tbl_industry',$data);
+        $this->session->set_flashdata('success', 'Industry Added Successfully .');
+        redirect('admin/industry-list');
+    }
+
+
+
+
+    /*
+    !-----------------------------------------
+    ! Edit Industry
+    !-----------------------------------------
+    */
+    public function edit_industry($industry_id)
+    {
+        $data['industry']  = $this->db->where('industry_id',$industry_id)->get('tbl_industry')->result_object();
+        $this->load->view('back/lib/header',$data);
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/industry/edit_industry');
+        $this->load->view('back/lib/footer'); 
+    }
+
+
+    /*
+    !----------------------------------------
+    ! update industry
+    !----------------------------------------
+    */
+    public function update_industry($industry_id)
+    { 
+        $data['industry_name'] = ucfirst($this->input->post('industry_name'));
+        
+        $this->db->set($data);
+        $this->db->where('industry_id',$industry_id);
+        $this->db->update('tbl_industry');
+        $this->session->set_flashdata('success', 'Industry Successfully updated to <strong>'.$data['industry_name']."</strong>");
+        redirect('admin/industry-list');
+    }
+
+    /*
+    !----------------------------------------
+    ! delete jobo category
+    !----------------------------------------
+    */
+    public function delete_industry($industry_id)
+    { 
+        $this->db->where('industry_id',$industry_id);
+        $this->db->delete('tbl_industry');
+        $this->session->set_flashdata('success', 'Industry Successfully Deleted');
+        redirect('admin/industry-list');
+    }
+
+    /*
+    !-----------------------------------------
+    ! Add Company
+    !-----------------------------------------
+    */
+    public function add_company()
+    {
+
+       $data['jobcats']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
+
+        $this->load->view('back/lib/header',$data);
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/company/add_company');
+        $this->load->view('back/lib/footer'); 
+    }
+
+    /*
+    !----------------------------------------
+    ! save company
+    !----------------------------------------
+    */
+    public function save_company()
+    { 
+       // echo '<pre>';
+        //print_r($_POST); die;
+
+        $data['company_name'] = ucfirst($this->input->post('company_name'));
+
+        if($this->db->where(['company_name'=>$this->input->post('company_name')])->get('tbl_company')->result_id->num_rows >0 )
+        {
+            $this->session->set_flashdata('error', 'Company <strong>'.$data["company_name"].'</strong> already exist');
+            redirect('admin/company-list');
+        }
+
+        $data['location']   = $this->input->post('location');
+        $data['address']    = $this->input->post('address');
+        $data['founded_on'] = $this->input->post('founded_on');
+        $data['total_employee']       = $this->input->post('total_employee');
+    
+        $this->db->insert('tbl_company',$data);
+        $this->session->set_flashdata('success', 'Company Added Successfully .');
+        redirect('admin/company-list');
+    }
+
+    /*
+    !-----------------------------------------
+    ! Company List
+    !-----------------------------------------
+    */
+    public function company_list()
+    {
+        $data['companies']  = $this->db->order_by('company_name','asc')->get('tbl_company')->result_object();
+        $this->load->view('back/lib/header',$data);
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/company/company_list');
+        $this->load->view('back/lib/footer'); 
+    }
+
+    /*
+    !-----------------------------------------
+    ! Edit Company
+    !-----------------------------------------
+    */
+    public function edit_company($company_id)
+    {
+        $data['company']  = $this->db->where('company_id',$company_id)->get('tbl_company')->result_object();
+        $this->load->view('back/lib/header',$data);
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/company/edit_company');
+        $this->load->view('back/lib/footer'); 
+    }
+
+    /*
+    !----------------------------------------
+    ! update company
+    !----------------------------------------
+    */
+    public function update_company($company_id)
+    { 
+        $data['company_name'] = ucfirst($this->input->post('company_name'));
+        $data['location']   = $this->input->post('location');
+        $data['address']    = $this->input->post('address');
+        $data['founded_on'] = $this->input->post('founded_on');
+        $data['total_employee']       = $this->input->post('total_employee');
+        $this->db->set($data);
+        $this->db->where('company_id',$company_id);
+        $this->db->update('tbl_company');
+        $this->session->set_flashdata('success', 'Company Updated Successfully .');
+        redirect('admin/company-list');
+    }
+
+     /*
+    !----------------------------------------
+    ! delete company
+    !----------------------------------------
+    */
+    public function delete_company($company_id)
+    { 
+        $this->db->where('company_id',$company_id);
+        $this->db->delete('tbl_company');
+        $this->session->set_flashdata('success', 'Successfully deleted Company.');
+        redirect('admin/company-list');
+    }
 
 }

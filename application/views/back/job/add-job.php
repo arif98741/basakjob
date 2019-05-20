@@ -14,7 +14,7 @@
       </div>
     </div> -->
 
-    <div class="col-10 stretch-card">
+    <div class="col-11 stretch-card">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Job Posting</h4>
@@ -38,6 +38,14 @@
               <input type="text" name="job_title" class="form-control" id="exampleInputEmail2" placeholder="Enter job title">
             </div>
           </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Location</label>
+            <div class="col-sm-9">
+              <input type="text" name="location" class="form-control" id="exampleInputEmail2" placeholder="Enter location">
+            </div>
+          </div>
+
+
 
           <div class="form-group row">
             <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Category Name </label>
@@ -52,11 +60,41 @@
 
                 <?php } ?>
 
+              </select>
+            </div>
+          </div>
 
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Industry </label>
+            <div class="col-sm-9">
+              <select name="industry_id" id="" class="form-control">
+                <option value="">Select Option</option>
+
+                <?php foreach($industries as $industry){ ?>
+
+                  <option value="<?php echo $industry->industry_id ?>"><?php echo ucfirst($industry->industry_name); ?></option>
+
+                <?php } ?>
 
               </select>
             </div>
           </div>
+
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Company </label>
+            <div class="col-sm-9">
+              <select name="company_id" id="" class="form-control">
+                <option value="">Select Option</option>
+                <?php foreach($companies as $company){ ?>
+
+                  <option value="<?php echo $company->company_id ?>"><?php echo ucfirst($company->company_name); ?></option>
+
+                <?php } ?>
+
+              </select>
+            </div>
+          </div>
+
 
           <div class="form-group row">
             <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Skill</label>
@@ -66,17 +104,33 @@
           </div>
 
           <div class="form-group row">
-            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Company Name</label>
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Experience</label>
             <div class="col-sm-9">
-              <input type="text" name="company_name" class="form-control" id="exampleInputEmail2" placeholder="Enter Company name">
+              <input type="text" name="experience" class="form-control" id="exampleInputEmail2" placeholder="Enter Experience">
             </div>
           </div>
 
+          
+
 
           <div class="form-group row">
-            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Salary</label>
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Starting Salary</label>
             <div class="col-sm-9">
-              <input type="number" name="salary" class="form-control" id="exampleInputEmail2" placeholder="Enter your salary">
+              <input type="number" name="starting_salary" class="form-control" id="exampleInputEmail2" placeholder="Enter starting salary">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Ending Salary</label>
+            <div class="col-sm-9">
+              <input type="number" name="ending_salary" class="form-control" id="exampleInputEmail2" placeholder="Enter ending salary">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Ending Education</label>
+            <div class="col-sm-9">
+              <input type="text" name="education" class="form-control" id="exampleInputEmail2" placeholder="Enter education">
             </div>
           </div>
 
@@ -100,19 +154,24 @@
               <input type="file" name="job_thumbnail" class="form-control" id="exampleInputEmail2">
             </div>
           </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Job Featured</label>
+            <div class="col-sm-9">
+              <select name="jobcat_id" id="" class="form-control">
+                <option value="" disabled="">Select Option</option>
+                <option value="0" selected="">Not Featured</option>
+                <option value="1">Featured</option>
 
-
+              </select>
+            </div>
+          </div>
 
           <div class="form-group row">
             <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Job Description</label>
             <div class="col-sm-9">
-              <textarea name="job_descri" id="" class="form-control" cols="30" rows="10"></textarea>
+              <textarea name="job_description" id="" class="form-control" cols="30" rows="10"></textarea>
             </div>
           </div>
-
-
-
-
           <!-- <button type="submit" class="btn btn-success mr-2">Submit</button> -->
           <button type="submit" class="btn btn-success btn-fw">
             <i class="mdi mdi-check"></i>Save</button>

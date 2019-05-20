@@ -22,23 +22,6 @@ class Category extends CI_Controller
     }
 
     /*
-    !-----------------------------------------
-    ! Job Form
-    !-----------------------------------------
-   
-    public function add_job()
-    {
-        $this->load->view('back/lib/header');
-        $this->load->view('back/lib/sidebar');
-        $this->load->view('back/add-job');
-        $this->load->view('back/lib/footer'); 
-    }
-
-     */
-
-
-
-    /*
     !----------------------------------------
     ! job cat index
     !----------------------------------------
@@ -60,12 +43,7 @@ class Category extends CI_Controller
             redirect('admin');
         }
         
-  
         $data['jobcat_name'] = $this->input->post('jobcat_name');
-        
-       
-        
-        
         $this->db->insert('tbl_job',$data);
         $this->session->set_flashdata('success', 'Data Added successfully .');
        // redirect('add-job');

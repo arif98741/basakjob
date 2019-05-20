@@ -20,6 +20,20 @@ $route['admin/edit-job-category/(:num)']= 'job/edit_job_category/$1';
 $route['admin/update-job-category/(:num)']	= 'job/update_job_category/$1';
 $route['admin/delete-job-category/(:num)']	= 'job/delete_job_category/$1';
 
+$route['admin/add-industry']			= 'job/add_industry';
+$route['admin/industry-list']			= 'job/industry_list';
+$route['admin/edit-industry/(:num)']	= 'job/edit_industry/$1';
+$route['admin/update-industry/(:num)']	= 'job/update_industry/$1';
+$route['admin/delete-industry/(:num)']	= 'job/delete_industry/$1';
+
+
+$route['admin/add-company']				= 'job/add_company';
+$route['admin/company-list']			= 'job/company_list';
+$route['admin/edit-company/(:num)']		= 'job/edit_company/$1';
+$route['admin/update-company/(:num)']	= 'job/update_company/$1';
+$route['admin/delete-company/(:num)']	= 'job/delete_company/$1';
+
+
 
 $route['jobs']				 = 'publicview/jobs';
 $route['jobs/(:num)'] = 'publicview/job_single/$1';

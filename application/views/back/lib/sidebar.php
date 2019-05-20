@@ -28,6 +28,44 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+
+
+        
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-job" aria-expanded="false" aria-controls="ui-job">
+              <i class="menu-icon mdi mdi-format-list-bulleted"></i>
+              <span class="menu-title">Jobs</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-job">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/add-job">Add  Job</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/job-list">Job List</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic4">
+              <i class="menu-icon mdi mdi-format-list-bulleted"></i>
+              <span class="menu-title">Company</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic4">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/add-company">Add  Company</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/company-list">Company List</a>
+                </li>
+              </ul>
+            </div>
+          </li>
           
           
           <li class="nav-item">
@@ -48,23 +86,47 @@
             </div>
           </li>
 
+
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic2">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic1">
               <i class="menu-icon mdi mdi-format-list-bulleted"></i>
-              <span class="menu-title">Jobs</span>
+              <span class="menu-title">Industry</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic2">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url(); ?>admin/add-job">Add  Job</a>
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/add-industry">Add Industry</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url(); ?>admin/job-list">Job List</a>
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/industry-list">Industry List</a>
                 </li>
               </ul>
             </div>
           </li>
+
+           <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-company" aria-expanded="false" aria-controls="ui-company">
+              <i class="menu-icon mdi mdi-format-list-bulleted"></i>
+              <span class="menu-title">Company</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-company">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/add-company">Add  Company</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/company-list">Company List</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          
+
+
+
+
 
           
           <!-- <li class="nav-item">

@@ -724,16 +724,16 @@
 							<?php foreach($jobs as $job) { ?>
 
 							<div class="col-sm-12 recent_job_box">
-								<h4 class="job_title"><a href="job-detail-page5e89.html?jid=31546521177" target="_blank"><?php  echo $job->job_title;?></a>  
+								<h4 class="job_title"><a href="<?php echo base_url(); ?>jobs/job_single/<?php echo $job->job_id; ?>" target="_blank"><?php  echo $job->job_title;?></a>  
 									<!-- <span class="pull-right">									
 										<a href="javascript:;" onclick="alert('Please Login to Save')"><i class="fa fa-star-o" aria-hidden="true"></i></a>
 									</span> --></h4>
 									<h4 class="compant_title"><?php  echo $job->company_name;?></h4> 
 									<ul class="job_dtl">
 										<li class="loc"> <?php  echo $job->location;?></li>
-										<li class="exp">1-1 YRS</li>
+										<li class="exp"><?php  echo $job->experience;?></li>
 
-										<li class="sal">2,00,000 - 3,00,000  P.A</li>
+										<li class="sal"><?php  echo $job->salary;?> to <?php  echo $job->salary + rand($job->salary, $job->salary+5000);?></li>
 									</ul>
 									<div class="clearfix"></div>
 									<div class="row mt15i mb10i">
@@ -741,12 +741,12 @@
 											<p class="key_ttl">Key Skill</p>
 										</div>
 										<div class="col-sm-9">
-											<p class="key_content">dsfds</p>
+											<p class="key_content"><?php  echo $job->skill;?></p>
 										</div>
 									</div>
 									<div class="row mt10i mb10i">
 										<div class="col-sm-3">
-											<p class="key_ttl">Job Description</p>
+											<p class="key_ttl"><?php  echo substr($job->location, 0,100);?></p>
 										</div>
 										<div class="col-sm-9">
 											<p class="key_content">                                             software,css,java....</p>
@@ -754,8 +754,8 @@
 									</div>
 									<div class="clearfix"></div>
 									<ul class="post_dtl">
-										<li class="text-left"><b>Post By </b>  Rajesh </li>
-										<li class="text-right"><b>Post Date </b> 2019-01-03 </li>
+										<!-- <li class="text-left"><b>Post By </b>  Rajesh </li> -->
+										<li class="text-left"><b>Post Date </b> <?php  echo $job->posted_date;?> </li>
 									</ul>
 								</div>
 
