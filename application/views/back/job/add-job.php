@@ -52,10 +52,7 @@
             <div class="col-sm-9">
               <select name="jobcat_id" id="" class="form-control">
                 <option value="">Select Option</option>
-
                 <?php foreach($jobcats as $jobcat){ ?>
-
-
                   <option value="<?php echo $jobcat->jobcat_id ?>"><?php echo ucfirst($jobcat->jobcat_name); ?></option>
 
                 <?php } ?>
@@ -128,7 +125,7 @@
           </div>
 
           <div class="form-group row">
-            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Ending Education</label>
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Education</label>
             <div class="col-sm-9">
               <input type="text" name="education" class="form-control" id="exampleInputEmail2" placeholder="Enter education">
             </div>
@@ -157,7 +154,7 @@
           <div class="form-group row">
             <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Job Featured</label>
             <div class="col-sm-9">
-              <select name="jobcat_id" id="" class="form-control">
+              <select name="featured_job" id="" class="form-control">
                 <option value="" disabled="">Select Option</option>
                 <option value="0" selected="">Not Featured</option>
                 <option value="1">Featured</option>

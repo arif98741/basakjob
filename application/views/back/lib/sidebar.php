@@ -9,7 +9,7 @@
                 <div class="text-wrapper">
                   <p class="profile-name">Admin</p>
                   <div>
-                    <small class="designation text-muted">Manager</small>
+                    <small class="designation text-muted">Administrator</small>
                     <span class="status-indicator online"></span>
                   </div>
                 </div>
@@ -49,23 +49,6 @@
             </div>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic4">
-              <i class="menu-icon mdi mdi-format-list-bulleted"></i>
-              <span class="menu-title">Company</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic4">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url(); ?>admin/add-company">Add  Company</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url(); ?>admin/company-list">Company List</a>
-                </li>
-              </ul>
-            </div>
-          </li>
           
           
           <li class="nav-item">
@@ -86,6 +69,26 @@
             </div>
           </li>
 
+           <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-designation" aria-expanded="false" aria-controls="ui-designation">
+              <i class="menu-icon mdi mdi-format-list-bulleted"></i>
+              <span class="menu-title">Job Designation</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-designation">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/add-designation">Add  Designation</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/designation-list"> Designation List</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          
+
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic1">
@@ -104,6 +107,26 @@
               </ul>
             </div>
           </li>
+
+           <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-pages" aria-expanded="false" aria-controls="ui-pages">
+              <i class="menu-icon mdi mdi-format-list-bulleted"></i>
+              <span class="menu-title">Page</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-pages">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/add-page">Add Page</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url(); ?>admin/page-list">Page List</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          
 
            <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-company" aria-expanded="false" aria-controls="ui-company">

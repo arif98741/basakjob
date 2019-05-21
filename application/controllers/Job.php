@@ -49,15 +49,6 @@ class Job extends CI_Controller
     
     public function save_job()
     { 
-        if (!$this->session->has_userdata('admin')) {
-            redirect('admin');
-        }
-
-        echo '<pre>';
-
-        print_r($_POST); exit;
-
-       
         $data['job_title'] = $this->input->post('job_title'); 
         $data['location'] = $this->input->post('location'); 
         $data['jobcat_id'] = $this->input->post('jobcat_id'); 
@@ -65,41 +56,40 @@ class Job extends CI_Controller
         $data['company_id'] = $this->input->post('company_id'); 
         $data['skill'] = $this->input->post('skill'); 
         $data['experience'] = $this->input->post('experience'); 
-        $data['starting_salary'] = $this->input->post('starting_salary'); 
-        $data['ending_salary'] = $this->input->post('ending_salary'); 
+        $data['salary_starting'] = $this->input->post('starting_salary'); 
+        $data['salary_ending'] = $this->input->post('ending_salary'); 
         $data['education'] = $this->input->post('education'); 
         $data['posted_date'] = $this->input->post('posted_date'); 
         $data['deadline'] = $this->input->post('deadline'); 
         $data['job_description'] = $this->input->post('job_description');
         $data['posted_date'] = date('Y-m-d');
         $data['deadline']    = date('Y-m-d');
+        $data['job_thumbnail'] = '';
         $this->db->insert('tbl_job',$data);
         $insert_id = $this->db->insert_id();
-
 
         if (!empty($_FILES['job_thumbnail']['name'])) {
 
             $config['upload_path'] = './uploads/job/';
-            $config['allowed_types'] = 'gif|jpg|png|gif|JPG|PNG|JPEG|GIF';
-            $config['max_size']     = 10000;
-            $config['max_width']    = 10000;
-            $config['max_height']   = 10000;
-
+            $config['allowed_types'] = 'gif|jpg|jpeg|png|GIF|JPG|jpeg|PNG';
+            $config['max_size']   = 10000;
+            $config['max_width']  = 10000;
+            $config['max_height'] = 10000;
             $this->load->library('upload', $config);
 
-            if (!$this->upload->do_upload('job_thumbnail')) {
-                
-            } else {
+            if ($this->upload->do_upload('job_thumbnail')) {
                 $upload_data = array('upload_data' => $this->upload->data());
-                $data['job_thumbnail'] = $upload_data['upload_data']['file_name'];
-            }
+
+                 $data['job_thumbnail'] = $upload_data['upload_data']['file_name'];
+                $this->db->set('job_thumbnail',$data['job_thumbnail']);
+                $this->db->where('job_id',$insert_id);
+                $this->db->update('tbl_job');
+            } 
         }else{
             $data['job_thumbnail'] = 'default.png';
         }
         
-        
-        $this->db->insert('tbl_job',$data);
-        $this->session->set_flashdata('success', 'Data Added successfully .');
+        $this->session->set_flashdata('success', 'Job Added successfully .');
         redirect('admin/job-list');
     }
 
@@ -111,6 +101,9 @@ class Job extends CI_Controller
     public function job_list()
     {
         $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
+        $this->db->join('tbl_industry','tbl_industry.industry_id = tbl_job.industry_id');
+        $this->db->join('tbl_company','tbl_company.company_id = tbl_job.company_id');
+        
         $data['jobs']  = $this->db->get('tbl_job')->result_object();
         
 
@@ -174,7 +167,7 @@ class Job extends CI_Controller
 
         $this->db->where('job_id',$job_id);
         $this->db->delete('tbl_job');
-        $this->session->set_flashdata('success', 'Successfully deleted Data.');
+        $this->session->set_flashdata('success', 'Job Successfully Deleted');
         redirect('admin/job-list');
     }
 
@@ -274,6 +267,99 @@ class Job extends CI_Controller
         $this->db->delete('tbl_job_category');
         $this->session->set_flashdata('success', 'Category Successfully Deleted');
         redirect('admin/job-category-list');
+    }
+
+     /*
+    !-----------------------------------------
+    ! Add designation
+    !-----------------------------------------
+    */
+    public function add_designation()
+    {
+        $this->load->view('back/lib/header');
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/designation/add_designation');
+        $this->load->view('back/lib/footer'); 
+    }
+
+    /*
+    !----------------------------------------
+    ! save_job Category
+    !----------------------------------------
+    */
+    
+    public function save_designation()
+    { 
+
+        if($this->db->where(['designation_name'=>$this->input->post('designation_name')])->get('tbl_designation')->result_id->num_rows >0 )
+        {
+            $this->session->set_flashdata('error', 'Designation  already exist');
+            redirect('admin/designation-list');
+        }
+       
+        $data['designation_name'] = ucfirst($this->input->post('designation_name'));
+        $this->db->insert('tbl_designation',$data);
+        $this->session->set_flashdata('success', 'Designation Added Successfully .');
+        redirect('admin/designation-list');
+    }
+
+    /*
+    !-----------------------------------------
+    ! Designation List
+    !-----------------------------------------
+    */
+    public function designation_list()
+    {
+        $data['designations']  = $this->db->order_by('designation_name','asc')->get('tbl_designation')->result_object();
+        $this->load->view('back/lib/header',$data);
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/designation/designation_list');
+        $this->load->view('back/lib/footer'); 
+    }
+
+
+    /*
+    !-----------------------------------------
+    ! Edit Designation
+    !-----------------------------------------
+    */
+    public function edit_designation($designation_id)
+    {
+        $data['designation']  = $this->db->where('designation_id',$designation_id)->get('tbl_designation')->result_object();
+        $this->load->view('back/lib/header',$data);
+        $this->load->view('back/lib/sidebar');
+        $this->load->view('back/designation/edit_designation');
+        $this->load->view('back/lib/footer'); 
+    }
+
+    /*
+    !----------------------------------------
+    ! update designation
+    !----------------------------------------
+    */
+    public function update_designation($designation)
+    { 
+        
+        $data['designation_name'] = ucfirst($this->input->post('designation_name'));
+        
+        $this->db->set($data);
+        $this->db->where('designation_id',$designation);
+        $this->db->update('tbl_designation');
+        $this->session->set_flashdata('success', 'Designation Successfully updated to <strong>'.$data['designation_name']."</strong>");
+        redirect('admin/designation-list');
+    }
+
+    /*
+    !----------------------------------------
+    ! delete designation
+    !----------------------------------------
+    */
+    public function delete_designation($designation_id)
+    { 
+        $this->db->where('designation_id',$designation_id);
+        $this->db->delete('tbl_designation');
+        $this->session->set_flashdata('success', 'Designation Successfully Deleted');
+         redirect('admin/designation-list');
     }
 
     /*

@@ -40,7 +40,7 @@
           <div class="entry-meta mtop40">
            <div class="col-md-12"> <span class="posted-on"><i class="fa fa-map-marker"></i> <span class="entry-date">
             Zahirabad 
-          </span></span> <span class="byline"> <i class="icon-suitcase"></i> <span class="author vcard">3-4 YRS</span></span> <span class="comments-link"><!--<i class="fa fa-inr"></i>--> <?php  echo $job[0]->salary;?> to <?php  echo $job[0]->salary + rand($job[0]->salary, $job[0]->salary+5000);?> </span></div>
+          </span></span> <span class="byline"> <i class="icon-suitcase"></i> <span class="author vcard">3-4 YRS</span></span> <span class="comments-link"><!--<i class="fa fa-inr"></i>--> <?php  echo $job[0]->salary_starting;?> to <?php  echo $job[0]->salary_ending;?> </span></div>
         </div>
         <div class="bot-align">
          <ul>
@@ -67,9 +67,9 @@
                          </div>-->
                        </div> 
                        <div class="col-sm-12 m5" >
-                        <div class="jd"><em><?php  echo $job[0]->job_descri;?></em>  </div>
+                        <div class="jd"><em><?php  echo $job[0]->job_description;?></em>  </div>
                         <div class="m5">     
-                          <div><span class="label lco"> Salary:</span> <span class="label lco-n"> <?php  echo $job[0]->salary;?> to <?php  echo $job[0]->salary + rand($job[0]->salary, $job[0]->salary+5000);?> as per compan policy</span></div>
+                          <div><span class="label lco"> Salary:</span> <span class="label lco-n"> <?php  echo $job[0]->salary_starting;?> to <?php  echo $job[0]->salary_starting + $job[0]->salary_ending;?> as per compan policy</span></div>
                           <!-- <div><span class="label lco">Industry:</span> <span class="label lco-n"> NGO/Social Services</span></div> -->
                           <div><span class="label lco">Functional Area:</span> <span class="label lco-n">Computer Operator/Data Entry</span></div>
                           <div><span class="label lco">Job Posted On:</span> <span class="label lco-n"><?php  echo $job[0]->posted_date;?></span></div>
@@ -81,9 +81,15 @@
                          <div class="all-catehead blue">Key Skills</div>  
                          <div class="key">
                            <ul>
-                             <li><input class="btn-grey btn" value="PHP WEB DEVELOPER " type="button"></li>
-                             <li><input class="btn-grey btn" value=" HTML WEB DESIGNER" type="button"></li>
-                             <li><input class="btn-grey btn" value=" CSS LAYOUT DESIGN" type="button"></li>
+                            <?php 
+                              $explodes = explode(',', $job[0]->skill);
+                              foreach ( $explodes as $explode) { ?>
+                                
+                            
+                             <li><input class="btn-grey btn" value="<?php echo $explode; ?> " type="button"></li>
+
+                             <?php  } ?>
+                             
 
                                              <!-- <li><input class="btn-grey btn" value="Draftsman Activities" type="button"> </li>  
                                               <li><input class="btn-grey btn" value="Design " type="button"></li> 
@@ -103,7 +109,7 @@
                                           <div class="all-catehead blue"> Desired Candidate Profile</div>  
                                           <div class="enq">Education :</div>
                                           <div class="m5"> 
-                                            Not Mentioned    
+                                            <?php  echo $job[0]->education;?>    
                                 <!--<div><span class="label lco">UG:</span> <span class="label lco-n">Any Specialization, Graduation Not Required</span></div>
                                 <div><span class="label lco">PG:</span> <span class="label lco-n"> Any Postgraduate - Any Specialization, Post Graduation Not Required</span></div>
                                 <div><span class="label lco">Doctorate:</span> <span class="label lco-n">Any Doctorate - Any Specialization, Doctorate Not Required</span></div>-->
@@ -118,7 +124,7 @@
                                </div> -->
 
                                <div class="all-catehead blue">Company Profile</div>
-                               <div class="enq">testing demo</div>
+                               <div class="enq"><?php  echo $job[0]->address;?></div>
                                <div class="m5"> 
                                  <div><span class="label lco-n">Description about company</span></div>
                           <!--   <div><span class="label lco-n">Industry:  Designing and Architecture firm with a clientele list of reknowned developers, celebrities and builders</span></div>
@@ -131,11 +137,11 @@
                           <div class="con-view lco-n"> <a data-toggle="collapse" href="#contactview" >View Contact Details </a> </div>
                           <div class="collapse" id="contactview" >
                            <div class="con-view-bg">
-                            <div><span class="label lco-n"> Recruiter Name: Rajesh</span></div>
-                            <div><span class="label lco-n"> Address: , ,,Indore,262,57- </span></div>
-                            <div><span class="label lco-n add"> Website: <a href="www.thiru.html" target="_blank"> www.thiru.com</a></span></div>
-                            <div><span class="label lco-n">Telephone: 76756567</span></div>
-                            <div><span class="label lco-n">Email Address: geetha@duruva.net</span></div>
+                            <!-- <div><span class="label lco-n"> Recruiter Name: Rajesh</span></div> -->
+                            <div><span class="label lco-n"> Address: <?php echo $job[0]->address; ?>- </span></div>
+                            <div><span class="label lco-n add"> Website: <a href="#" target="_blank">  <?php echo $job[0]->company_website; ?></a></span></div>
+                            <div><span class="label lco-n">Telephone:  <?php echo $job[0]->company_contact; ?></span></div>
+                            <div><span class="label lco-n">Email Address:  <?php echo $job[0]->company_email; ?></span></div>
                           </div>   
                         </div> 
 

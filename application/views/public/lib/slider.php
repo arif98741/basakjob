@@ -8,7 +8,7 @@
 						<div class="banner-caption">
 							<div class="col-md-12 col-sm-12 banner-text">
 								<h1>Browse Jobs</h1>
-								<form class="form-horizontal" action="http://198.38.86.159/~onlineexamboard/demo/advanced-job-portal/jobsearch.php" name="homeadvancesearch" method="GET">
+								<form class="form-horizontal" action="" name="homeadvancesearch" method="GET">
 									<div class="col-md-4 no-padd">
 										<div class="input-group">
 											<input class="form-control right-bor" id="keyword" name="refkeyword" type="text"  placeholder="Skills, Designations, Companies" value=''>
@@ -22,25 +22,13 @@
 									<div class="col-md-3 no-padd">
 										<div class="input-group">
 											<select id="category" name="category" class="form-control ">
+
 												<option value="">select category</option>
-												<option value="56"  >Construction</option>
-												<option value="53"  >IT - BPO</option>
-												<option value="50"  >IT-ERP-Oracle</option>
-												<option value="42"  >KPO/Technical Support</option>
-												<option value="34"  >Law Enforcement</option>
-												<option value="35"  >Legal/Law</option>
-												<option value="55"  >Management</option>
-												<option value="36"  >Marketing/Sales</option>
-												<option value="52"  >mech</option>
-												<option value="51"  >Media </option>
-												<option value="37"  >Media/Journalism</option>
-												<option value="54"  >NGO/Social Services</option>
-												<option value="57"  >Others</option>
-												<option value="38"  >Production/Manufacturing/Maintenance</option>
-												<option value="44"  >Strategy Management</option>
-												<option value="46"  >test cate</option>
-												<option value="40"  >Tours and Travel</option>
-												<option value="41"  >Transportation</option>
+												<?php 
+													foreach ($categories as $category) { ?>
+														<option value="<?php echo $category->jobcat_id; ?>"><?php echo $category->jobcat_name; ?></option>
+									<?php		}?>
+												
 											</select>
 										</div>
 									</div>

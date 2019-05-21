@@ -2,10 +2,8 @@
 <!-- Header End -->		
 
 
-
-<title>Jobs </title>
 <!-- Page Heading Section Start -->	
-<div class="pagehding-sec">
+<div class="pagehding-sec" style="margin-top: 100px;">
 	<div class="images-overlay"></div>		
 	<div class="container">
 		<div class="row">
@@ -67,7 +65,7 @@
 							</div>
 						</div>
 						<div class="course-meta">
-							<span class="course-price"><?php echo $job->salary;?></span>
+							<span class="course-price"><?php echo $job->salary_starting;?></span>
 							<span class="course-rating">
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
@@ -79,7 +77,7 @@
 						<div class="course-desc">
 							<h2><a href="course_details.php?id=33"><?php echo $job->job_title ;?></a></h2>
 							<span style="font-size: 16px;" class="course-price"><?php echo $job->company_name;?></span>
-							<p><p style="text-align: justify;"><?php echo substr($job->job_descri , 0,100);?></p>
+							<p><p style="text-align: justify;"><?php echo substr($job->job_description , 0,100);?></p>
 						</div>
 						<div class="course-info">
 							<ul>

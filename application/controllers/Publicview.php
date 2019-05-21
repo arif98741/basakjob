@@ -25,9 +25,17 @@ class Publicview extends CI_Controller
     public function index()
     {
         $data['jobcats'] = $this->db->order_by('jobcat_name')->get('tbl_job_category')->result_object();
+
         $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
         $data['jobs']  = $this->db->order_by('job_id','desc')->limit(3)->get('tbl_job')->result_object();
         $data['featuredjobs']  = $this->db->where('featured_job','1')->limit(4)->get('tbl_job')->result_object();
+
+        $data['designations']  = $this->db->order_by('designation_name','asc')->get('tbl_designation')->result_object();
+        $data['categories']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
+        
+        $data['totaljob'] = $this->countermodel->totaljob();
+        $data['totalcategory'] = $this->countermodel->totalcategory();
+        $data['totalcompany'] = $this->countermodel->totalcompany();
 
 
 
@@ -64,11 +72,11 @@ class Publicview extends CI_Controller
     {
         //echo $id; die;
         $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
+        $this->db->join('tbl_company','tbl_company.company_id = tbl_job.company_id');
         $this->db->where(['job_id'=>$id]);
         $data['job']  = $this->db->get('tbl_job')->result_object();
-        
         //echo "<pre>";
-        //print_r($data['job']); die;
+       // print_r($data['job']); die;
 
         $this->load->view('public/lib/header',$data);
         $this->load->view('public/job_single');
@@ -86,28 +94,29 @@ class Publicview extends CI_Controller
         $search = '';
         $data['searchkey'] = '';
         $this->db->join('tbl_job_category','tbl_job.jobcat_id = tbl_job_category.jobcat_id');
+        $this->db->join('tbl_company','tbl_job.company_id = tbl_company.company_id');
 
         if (isset($_GET['location'])) {
 
             $data['searchkey']  .= "Location: ".$this->input->get('location');
-            $this->db->or_like('location', $this->input->get('location'));
+            $this->db->or_like('tbl_job.location', $this->input->get('location'));
 
         } elseif(isset($_GET['category'])){
 
             $data['searchkey']  .= ". Category: ".$this->input->get('category');
             $this->db->or_like('tbl_job_category.jobcat_name', $this->input->get('category'));
 
-        }elseif(isset($_GET['starting_salary'])  && isset($_GET['ending_salary'])){
+        }elseif(isset($_GET['salary_starting'])  && isset($_GET['salary_ending'])){
 
-            $data['searchkey']  .= ". Starting Salary: ".$this->input->get('starting_salary'). " and Ending Salary ".$this->input->get('ending_salary');
+            $data['searchkey']  .= ". Starting Salary: ".$this->input->get('salary_starting'). " and Ending Salary ".$this->input->get('salary_ending');
 
-            $this->db->where('tbl_job.salary >=', $this->input->get('starting_salary'));
-            $this->db->where('tbl_job.salary <=', $this->input->get('ending_salary'));
+            $this->db->where('tbl_job.salary >=', $this->input->get('salary_starting'));
+            $this->db->where('tbl_job.salary <=', $this->input->get('salary_ending'));
         }else{
             $data['searchkey']  .= $search;
             $this->db->like('job_title', $this->input->get('search'));
-            $this->db->or_like('location', $this->input->get('search'));
-            $this->db->or_like('salary', $this->input->get('search'));
+            $this->db->or_like('tbl_job.location', $this->input->get('search'));
+            $this->db->or_like('salary_starting', $this->input->get('search'));
         }
 
         $this->db->order_by('job_id','desc')->limit(10);

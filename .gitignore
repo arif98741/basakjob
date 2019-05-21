@@ -5,3 +5,4 @@ application/logs/*
 works/*
 *.zip
 system/cache/*
+uploads

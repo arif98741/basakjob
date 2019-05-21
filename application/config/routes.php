@@ -14,6 +14,7 @@ $route['admin/job-list'] 	= 'job/job_list';
 $route['admin/edit_job/(:num)']= 'job/edit_job/$1';
 $route['admin/update_job/(:num)']= 'job/update_job/$1';
 $route['admin/delete_job/(:num)']= 'job/delete_job/$1';
+
 $route['admin/add-job-category']= 'job/add_job_category';
 $route['admin/job-category-list']= 'job/job_category_list';
 $route['admin/edit-job-category/(:num)']= 'job/edit_job_category/$1';
@@ -27,23 +28,36 @@ $route['admin/update-industry/(:num)']	= 'job/update_industry/$1';
 $route['admin/delete-industry/(:num)']	= 'job/delete_industry/$1';
 
 
+$route['admin/add-designation']			= 'job/add_designation';
+$route['admin/designation-list']		= 'job/designation_list';
+$route['admin/edit-designation/(:num)']	= 'job/edit_designation/$1';
+$route['admin/update-designation/(:num)']	= 'job/update_designation/$1';
+$route['admin/delete-designation/(:num)']	= 'job/delete_designation/$1';
+
 $route['admin/add-company']				= 'job/add_company';
 $route['admin/company-list']			= 'job/company_list';
 $route['admin/edit-company/(:num)']		= 'job/edit_company/$1';
 $route['admin/update-company/(:num)']	= 'job/update_company/$1';
 $route['admin/delete-company/(:num)']	= 'job/delete_company/$1';
 
+$route['admin/add-page']				= 'page/add_page';
+$route['admin/page-list']				= 'page/page_list';
+$route['admin/edit-page/(:num)']		= 'page/edit_page/$1';
+$route['admin/update-page/(:num)']		= 'page/update_page/$1';
+$route['admin/delete-page/(:num)']		= 'page/delete_page/$1';
 
 
-$route['jobs']				 = 'publicview/jobs';
-$route['jobs/(:num)'] = 'publicview/job_single/$1';
-$route['jobs/search']		 = 'publicview/search_job';
-$route['jobs/category']		= 'publicview/jobs_category';
-$route['jobs/job_single/(:num)']	       = 'publicview/job_single/$1';
-$route['profile']	       = 'registration/profile';
-$route['registration']	   = 'registration/registration';
-$route['login']	  		   = 'registration/login';
-$route['logout']	  	    = 'registration/logout';
+
+$route['jobs']				 	= 'publicview/jobs';
+$route['page/contact-us']			= 'publicview/jobs';
+$route['jobs/(:num)'] 			= 'publicview/job_single/$1';
+$route['jobs/search']		 	= 'publicview/search_job';
+$route['jobs/category']			= 'publicview/jobs_category';
+$route['jobs/job_single/(:num)']= 'publicview/job_single/$1';
+$route['profile']	       		= 'registration/profile';
+$route['registration']	   		= 'registration/registration';
+$route['login']	  		   		= 'registration/login';
+$route['logout']	  	    	= 'registration/logout';
 
 
 $route['404_override'] 		   = 'error404'; //override by controller

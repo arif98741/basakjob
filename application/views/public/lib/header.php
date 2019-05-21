@@ -227,8 +227,8 @@ xmlhttp.send();
 						<div class="widget widget-pages">
 							<ul class="header_top_list black" style="text-align:left;">
 								<li><a style="color:black;" href="aboutus.html">About Us</a></li>
-								<li><a style="color:black;" href="#"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;1111111</a></li>
-								<li><a style="color:black;" href="mailto:info@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> &nbsp;info@gmail.com</a></li>
+								<li><a style="color:black;" href="#"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;123456789</a></li>
+								<li><a style="color:black;" href="mailto:basak.siplu.mirana@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> &nbsp;basak.siplu.mirana@gmail.com</a></li>
 							</ul>
 						</div>
 					</div><!-- col -->
@@ -269,7 +269,7 @@ xmlhttp.send();
 					<!-- Start Header Navigation -->
 					<div class="navbar-header">
 						<a class="navbar-brand" id="logo" href="<?php echo base_url(); ?>">
-							<img src="<?php echo base_url(); ?>asset/public/images/logo-1546865669.png" alt="enterprenuer.com">
+							<img src="<?php echo base_url(); ?>asset/public/images/logo-1546865669.png" alt="<?php echo base_url(); ?>">
 						</a>
 					</div>
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -281,7 +281,7 @@ xmlhttp.send();
 						<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 
 							<li><a href="<?php echo base_url(); ?>">Home</a></li>					 
-							<li  ><a href="searchall.html">Jobs</a></li>                    
+							<li  ><a href="<?php echo base_url(); ?>jobs/search">Jobs</a></li>                    
 							<li ><a href="jobsearch_alld28e.html?sch=1">Govt.jobs</a></li>
 							<li ><a href="jobsearch_all8b8e.html?sch=2">Oversea jobs</a></li>
 							<li ><a href="recruiter-listing.html">Recruiters</a></li>
