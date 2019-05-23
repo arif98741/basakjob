@@ -44,6 +44,8 @@ class Admin extends CI_Controller
 
         $data['totaljob']   = $this->db->get('tbl_job')->result_id->num_rows;
         $data['totaljobcat'] = $this->db->get('tbl_job_category')->result_id->num_rows;
+        $data['totalindustry'] = $this->db->get('tbl_industry')->result_id->num_rows;
+        $data['totalemployee'] = $this->db->get('employee')->result_id->num_rows;
 
 
         $this->load->view('back/lib/header',$data);
@@ -85,10 +87,10 @@ class Admin extends CI_Controller
                     'admin_image' => $data[0]->admin_image
             );
            $this->session->set_userdata($session);
-           $this->session->set_flashdata('success', 'সফলভাবে লগিন হয়েছে');
+           $this->session->set_flashdata('success', 'Successfully Logged in');
            redirect('admin/dashboard');
        }else{
-            $this->session->set_flashdata('error', 'ইউজার নেইম অথবা পাসওয়াড সঠিক নয়');
+            $this->session->set_flashdata('error', 'Username or password not matched');
             redirect("admin");
        }
 
@@ -102,6 +104,7 @@ class Admin extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
+        $this->session->set_flashdata('success', 'Loggeout successfully');
         redirect('admin');
     }
 

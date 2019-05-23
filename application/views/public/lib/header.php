@@ -1,3 +1,7 @@
+<?php
+	//echo '<pre>';
+	//print_r($this->session); exit;
+?>
 <!doctype html>
 <html lang="en">
 
@@ -22,7 +26,14 @@
       	<meta name="keywords" content="">
       	<meta name="description" content="">
 
-      	<title>Jobs Portal </title>
+      	<title><?php
+      	if (isset($title)) {
+      		 echo $title;
+      	}else{
+      		echo "Job Portal";
+      	}
+      	
+      	  ?></title>
 
 
       	<!-- FAVICON AND APPLE TOUCH -->    
@@ -238,56 +249,98 @@ xmlhttp.send();
 						<div class="widget widget-pages">
 							<ul class="header_top_list pull-right">
 								<li>
-									<a href="jobsseeker-login.html">
-										<i class="fa fa-user" aria-hidden="true"></i>
-										Login
-									</a>
-								</li>
-								<li>
-									<!--<a href="http://198.38.86.159/~onlineexamboard/demo/advanced-job-portal/employer-login.html">-->
-										<a href="jobseeker-registration.html">
-											<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-											Register
+									<?php if(!$this->session->employeelogin): ?>
+										<a href="<?php echo base_url(); ?>employee/login">
+											<i class="fa fa-user" aria-hidden="true"></i>
+											Login
 										</a>
+										<?php else: ?>
+
+											<a href="<?php echo base_url(); ?>employee/profile">
+												<i class="fa fa-user" aria-hidden="true"></i>
+												<?php echo $this->session->employee_fullname; ?>
+											</a>
+
+
+										<?php endif; ?>
 									</li>
-									
-								</ul>
-							</div><!-- widget-pages -->
-						</div><!-- col -->
+									<li>
+										<!--<a href="http://198.38.86.159/~onlineexamboard/demo/advanced-job-portal/employer-login.html">-->
 
-						<!-- <div class="text-right botlink5"><a href="#">Job Seeker? Click here</a>  |  Report a Problem</div>-->
-					</div><!-- row -->
-				</div><!-- container -->
-			</div><!-- header-top -->
 
-			
-			<nav class="navbar navbar-default navbar-fixed navbar-light white bootsnav">
-				<div class="container">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-						<i class="fa fa-bars"></i>
-					</button>
-					<!-- Start Header Navigation -->
-					<div class="navbar-header">
-						<a class="navbar-brand" id="logo" href="<?php echo base_url(); ?>">
-							<img src="<?php echo base_url(); ?>asset/public/images/logo-1546865669.png" alt="<?php echo base_url(); ?>">
-						</a>
-					</div>
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="navbar-menu">
-						<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-							<!--<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>SignUp</a></li>-->
-							<li class="left-br"><a href="employer-login.html" class="signin">Recruiter's Login</a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+											<?php if(!$this->session->employeelogin): ?>
+												<a href="<?php echo base_url(); ?>employee/registration">
+													<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+													Register
+												</a>
 
-							<li><a href="<?php echo base_url(); ?>">Home</a></li>					 
-							<li  ><a href="<?php echo base_url(); ?>jobs/search">Jobs</a></li>                    
-							<li ><a href="jobsearch_alld28e.html?sch=1">Govt.jobs</a></li>
-							<li ><a href="jobsearch_all8b8e.html?sch=2">Oversea jobs</a></li>
-							<li ><a href="recruiter-listing.html">Recruiters</a></li>
-							<li  ><a href="contactus.html">Contact</a></li>
-						</ul>
-					</div>
-					<!-- /.navbar-collapse -->
-				</div>
-			</nav>
+												<?php else: ?>
+
+													<a href="<?php echo base_url(); ?>employee/logout">
+														<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+														Logout
+													</a>
+
+
+												<?php endif; ?>
+
+
+											</li>
+
+										</ul>
+									</div><!-- widget-pages -->
+								</div><!-- col -->
+
+								<!-- <div class="text-right botlink5"><a href="#">Job Seeker? Click here</a>  |  Report a Problem</div>-->
+							</div><!-- row -->
+						</div><!-- container -->
+					</div><!-- header-top -->
+
+					<?php if($this->session->success): ?>
+						<p class="alert alert-success" class="message"><?php echo $this->session->success; ?></p>
+					<?php endif; ?>
+
+					<?php if($this->session->error): ?>
+						<p class="alert alert-warning" class="message"><?php echo $this->session->error; ?></p>
+
+					<?php endif; ?>
+
+
+					<nav class="navbar navbar-default navbar-fixed navbar-light white bootsnav">
+						<div class="container">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+								<i class="fa fa-bars"></i>
+							</button>
+							<!-- Start Header Navigation -->
+							<div class="navbar-header">
+								<a class="navbar-brand" id="logo" href="<?php echo base_url(); ?>">
+									<img src="<?php echo base_url(); ?>asset/public/images/logo-1546865669.png" alt="<?php echo base_url(); ?>">
+								</a>
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="navbar-menu">
+								<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+									<!--<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>SignUp</a></li>-->
+
+									<?php if(!$this->session->recruiterlogin): ?>
+										<li class="left-br"><a href="<?php echo base_url(); ?>recruiter/login" class="signin">Recruiter's Login</a></li>
+										<?php else: ?>
+
+											<li class="left-br"><a href="<?php echo base_url(); ?>recruiter/logout" class="signin">Logout</a></li>
+										<?php endif; ?>
+
+
+									</ul>
+									<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+
+										<li><a href="<?php echo base_url(); ?>">Home</a></li>					 
+										<li  ><a href="<?php echo base_url(); ?>jobs/search">Jobs</a></li>                    
+										<li ><a href="<?php echo base_url(); ?>jobs/job-type/Government-Job">Govt.jobs</a></li>
+										<li ><a href="<?php echo base_url(); ?>jobs/job-type/overseas-job">Oversea jobs</a></li>
+										<li ><a href="recruiter-listing.html">Recruiters</a></li>
+										<li  ><a href="<?php echo base_url();?>page/100/contact-us">Contact</a></li>
+									</ul>
+								</div>
+								<!-- /.navbar-collapse -->
+							</div>
+						</nav>

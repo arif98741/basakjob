@@ -1,26 +1,26 @@
 	<footer class="footer">				
-       								<div class="row no-padding" >
-       									<div class="container">  
-       										<div class="col-md-3 col-sm-12">	
-       											<div class="footer-widget">
-       												<h3 class="widgettitle widget-title">Information</h3>
-       												<div class="textwidget">
-       													<ul class="footer-navigation">
-       														<li><a href="aboutus.html" > About Us </a> </li>
-       														<li><a href="terms.html" > Terms & Conditions </a></li>
-       														<li><a href="privacy-policy.html" > Privacy Policy </a></li>
-       														<li><a href="contactus.html" > Contact Us </a></li>
-       														<li><a href="faq.html" > Help / FAQ </a></li>
-       													</ul>
-       												</div>    
-       											</div><!-- widget-contact -->
-       										</div><!-- col -->
-       										<div class="col-md-3 col-sm-4">	
-       											<div class="footer-widget">
-       												<h3 class="widgettitle widget-title">Jobseekers</h3>
-       												<div class="textwidget">
-       													<ul class="footer-navigation">
-       														<li><a href="jobsseeker-login.html" > Login/Register </a> </li>
+       <div class="row no-padding" >
+        <div class="container">  
+         <div class="col-md-3 col-sm-12">	
+          <div class="footer-widget">
+           <h3 class="widgettitle widget-title">Information</h3>
+           <div class="textwidget">
+            <ul class="footer-navigation">
+             <li><a href="<?php echo base_url();?>page/96/about-us" > About Us </a> </li>
+             <li><a href="<?php echo base_url();?>page/97/terms-and-conditions" > Terms & Conditions </a></li>
+             <li><a href="<?php echo base_url();?>page/98/privacy-policy" > Privacy Policy </a></li>
+             <li><a href="<?php echo base_url();?>page/100/contact-us" > Contact Us </a></li>
+             <li><a href="<?php echo base_url();?>page/99/help-and-faq" > Help / FAQ </a></li>
+         </ul>
+     </div>    
+ </div><!-- widget-contact -->
+</div><!-- col -->
+<div class="col-md-3 col-sm-4">	
+  <div class="footer-widget">
+   <h3 class="widgettitle widget-title">Jobseekers</h3>
+   <div class="textwidget">
+    <ul class="footer-navigation">
+     <li><a href="jobsseeker-login.html" > Login/Register </a> </li>
                                     <!--<li><a href="#" > Follow Top Recruiters </a></li>
                                     <li><a href="#" > Resume Free Quality Score </a></li>
                                     <li><a href="#" > Career Advice </a></li>
@@ -64,12 +64,12 @@
                         				<li><a href="job_by_locationdba2.html?loc=1" > Location </a></li>
                         			</ul>
                         		</div>
-                        		<h3 class="widgettitle widget-title">Oversea Jobs</h3>
+                        		<!-- <h3 class="widgettitle widget-title">Oversea Jobs</h3>
                         		<div class="textwidget">
                         			<ul class="footer-navigation">
                         				<li><a href="job_by_location2b8e.html?loc=2" > All Countries </a> </li>
                         			</ul>
-                        		</div>
+                        		</div> -->
                         		<h3 class="widgettitle widget-title">Employers</h3>
                         		<div class="textwidget">
                         			<ul class="footer-navigation">
@@ -352,7 +352,9 @@ $.ajax({
 	$(document).ready(function(){
 		
 
-		
+		setTimeout(function(){
+            $('.message').slideUp(600);
+        },2000);
 
 		$("#keyword").autocomplete("keyskillsearch.html", {
 

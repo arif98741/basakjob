@@ -30,7 +30,7 @@
                 <div class="form-group">
                   <label class="label">Username</label>
                   <div class="input-group">
-                    <input type="text" name="username" class="form-control" placeholder="Username">
+                    <input type="text" name="username" class="form-control" placeholder="Username" required="">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -41,7 +41,7 @@
                 <div class="form-group">
                   <label class="label">Password</label>
                   <div class="input-group">
-                    <input type="password" name="password" class="form-control" placeholder="*********">
+                    <input type="password" name="password" class="form-control" placeholder="*********" required="">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -53,6 +53,15 @@
                   <button type="submit" name="login" class="btn btn-primary submit-btn btn-block">Login</button>
                 </div>
                 </form>
+
+                <?php if($this->session->success): ?>
+                  <p class="alert alert-success"><?php echo $this->session->success ?></p>
+                <?php  endif;?>
+                <?php if($this->session->error): ?>
+                  <p class="alert alert-warning"><?php echo $this->session->error ?></p>
+                <?php  endif;?>
+
+                
               </div>
             </div>
           </div>

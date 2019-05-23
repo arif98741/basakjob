@@ -28,7 +28,7 @@ class Job extends CI_Controller
     */
     public function add_job()
     {
-
+        $data['title']      = "Add Job";
         $data['jobcats']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
 
         $data['industries']  = $this->db->order_by('industry_name','asc')->get('tbl_industry')->result_object();
@@ -54,6 +54,7 @@ class Job extends CI_Controller
         $data['jobcat_id'] = $this->input->post('jobcat_id'); 
         $data['industry_id'] = $this->input->post('industry_id'); 
         $data['company_id'] = $this->input->post('company_id'); 
+        $data['job_type'] = $this->input->post('job_type'); 
         $data['skill'] = $this->input->post('skill'); 
         $data['experience'] = $this->input->post('experience'); 
         $data['salary_starting'] = $this->input->post('starting_salary'); 
@@ -100,6 +101,7 @@ class Job extends CI_Controller
     */
     public function job_list()
     {
+        $data['title']      = "Job List";
         $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
         $this->db->join('tbl_industry','tbl_industry.industry_id = tbl_job.industry_id');
         $this->db->join('tbl_company','tbl_company.company_id = tbl_job.company_id');
@@ -123,6 +125,7 @@ class Job extends CI_Controller
     */
     public function edit_job($job_id)
     {
+        $data['title']      = "Edit Job";
         $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
         $this->db->where('job_id',$job_id);
         $data['job']  = $this->db->get('tbl_job')->result_object();
@@ -178,7 +181,8 @@ class Job extends CI_Controller
     */
     public function add_job_category()
     {
-        $this->load->view('back/lib/header');
+        $data['title']      = "Add Job Category";
+        $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
         $this->load->view('back/add-job-category');
         $this->load->view('back/lib/footer'); 
@@ -215,6 +219,7 @@ class Job extends CI_Controller
     */
     public function job_category_list()
     {
+        $data['title']      = "Job Category List";
         $data['jobcats']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
         $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
@@ -230,7 +235,7 @@ class Job extends CI_Controller
     */
     public function edit_job_category($jobcat_id)
     {
-
+        $data['title']      = "Edit Job Category";
         $data['jobcat']  = $this->db->where('jobcat_id',$jobcat_id)->get('tbl_job_category')->result_object();
         $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
@@ -276,7 +281,8 @@ class Job extends CI_Controller
     */
     public function add_designation()
     {
-        $this->load->view('back/lib/header');
+        $data['title']      = "Add Designation";
+        $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
         $this->load->view('back/designation/add_designation');
         $this->load->view('back/lib/footer'); 
@@ -310,6 +316,7 @@ class Job extends CI_Controller
     */
     public function designation_list()
     {
+        $data['title']      = "Designation List";
         $data['designations']  = $this->db->order_by('designation_name','asc')->get('tbl_designation')->result_object();
         $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
@@ -325,6 +332,7 @@ class Job extends CI_Controller
     */
     public function edit_designation($designation_id)
     {
+        $data['title']      = "Edit Designation";
         $data['designation']  = $this->db->where('designation_id',$designation_id)->get('tbl_designation')->result_object();
         $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
@@ -369,6 +377,8 @@ class Job extends CI_Controller
     */
     public function industry_list()
     {
+        $data['title']      = "Industry List";
+
         $data['industries']  = $this->db->order_by('industry_name','asc')->get('tbl_industry')->result_object();
         $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
@@ -383,7 +393,9 @@ class Job extends CI_Controller
     */
     public function add_industry()
     {
-        $this->load->view('back/lib/header');
+        $data['title']      = "Add Industyr";
+
+        $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
         $this->load->view('back/industry/add_industry');
         $this->load->view('back/lib/footer'); 
@@ -419,6 +431,8 @@ class Job extends CI_Controller
     */
     public function edit_industry($industry_id)
     {
+        $data['title']      = "Edit Industry";
+
         $data['industry']  = $this->db->where('industry_id',$industry_id)->get('tbl_industry')->result_object();
         $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
@@ -464,6 +478,8 @@ class Job extends CI_Controller
     public function add_company()
     {
 
+        $data['title']      = "Add Company";
+
        $data['jobcats']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
 
         $this->load->view('back/lib/header',$data);
@@ -507,6 +523,8 @@ class Job extends CI_Controller
     */
     public function company_list()
     {
+        $data['title']      = "Company List";
+
         $data['companies']  = $this->db->order_by('company_name','asc')->get('tbl_company')->result_object();
         $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');
@@ -521,6 +539,8 @@ class Job extends CI_Controller
     */
     public function edit_company($company_id)
     {
+        $data['title']      = "Edit Company";
+
         $data['company']  = $this->db->where('company_id',$company_id)->get('tbl_company')->result_object();
         $this->load->view('back/lib/header',$data);
         $this->load->view('back/lib/sidebar');

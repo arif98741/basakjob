@@ -1,4 +1,10 @@
-<div class="main-panel">
+<div class="main-panel"><br>
+  <?php if($this->session->success): ?>
+    <p class="alert alert-success"><?php echo $this->session->success ?></p>
+  <?php  endif;?>
+  <?php if($this->session->error): ?>
+    <p class="alert alert-warning"><?php echo $this->session->error ?></p>
+  <?php  endif;?>
   <div class="content-wrapper">
     <div class="row purchace-popup">
       <!-- <div class="col-12">
@@ -45,9 +51,9 @@
                 </div>
               </div>
             </div>
-            <p class="text-muted mt-3 mb-0">
-              <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Product-wise sales
-            </p>
+           
+            </p> <!-- <p class="text-muted mt-3 mb-0">
+              <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Product-wise sales -->
           </div>
         </div>
       </div>
@@ -59,15 +65,15 @@
                 <i class="mdi mdi-poll-box text-success icon-lg"></i>
               </div>
               <div class="float-right">
-                <p class="mb-0 text-right">Sales</p>
+                <p class="mb-0 text-right">Industry</p>
                 <div class="fluid-container">
-                  <h3 class="font-weight-medium text-right mb-0">5693</h3>
+                  <h3 class="font-weight-medium text-right mb-0"><?php echo $totalindustry; ?></h3>
                 </div>
               </div>
             </div>
-            <p class="text-muted mt-3 mb-0">
+           <!--  <p class="text-muted mt-3 mb-0">
               <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> Weekly Sales
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
@@ -81,19 +87,19 @@
               <div class="float-right">
                 <p class="mb-0 text-right">Employees</p>
                 <div class="fluid-container">
-                  <h3 class="font-weight-medium text-right mb-0">246</h3>
+                  <h3 class="font-weight-medium text-right mb-0"><?php echo $totalemployee; ?></h3>
                 </div>
               </div>
             </div>
-            <p class="text-muted mt-3 mb-0">
+          <!--   <p class="text-muted mt-3 mb-0">
               <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Product-wise sales
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-7 grid-margin stretch-card">
+      <div class="col-lg-12 grid-margin stretch-card">
         <!--weather card-->
         <div class="card card-weather">
           <div class="card-body">
@@ -107,7 +113,7 @@
             <div class="weather-data d-flex">
               <div class="mr-auto">
                 <h4 class="display-3 "><span class="clock"><?php echo date('h:i:s'); ?></span>
-                <span class="symbol"></span><?php //echo date('A'); ?></h4>
+                  <span class="symbol"></span><?php //echo date('A'); ?></h4>
                   <!-- <p>
                     Mostly Cloudy
                   </p> -->
@@ -118,7 +124,7 @@
           </div>
           <!--weather card ends-->
         </div>
-        <div class="col-lg-5 grid-margin stretch-card">
+       <!--  <div class="col-lg-5 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
               <h2 class="card-title text-primary mb-5">Performance History</h2>
@@ -162,10 +168,10 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
      <!--  <div class="row">
-       -->
+     -->
      <!--  <div class="row">
         <div class="col-lg-12 grid-margin">
           <div class="card">
@@ -484,21 +490,21 @@
                             <script>
                               $(document).ready(function() {
                                // alert('yes');
-                                function startTime() {
-                                        var today = new Date();
-                                        var h = today.getHours();
-                                        var m = today.getMinutes();
-                                        var s = today.getSeconds();
-                                        m = checkTime(m);
-                                        s = checkTime(s);
-                                        $('.clock').html(h + ":" + m + ":" + s);
-                                        var t = setTimeout(startTime, 500);
-                                }
-                                startTime();
-                                function checkTime(i) {
+                               function startTime() {
+                                var today = new Date();
+                                var h = today.getHours();
+                                var m = today.getMinutes();
+                                var s = today.getSeconds();
+                                m = checkTime(m);
+                                s = checkTime(s);
+                                $('.clock').html(h + ":" + m + ":" + s);
+                                var t = setTimeout(startTime, 500);
+                              }
+                              startTime();
+                              function checkTime(i) {
                                   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
                                   return i;
                                 }
-                                                                      
+                                
                               });
                             </script>

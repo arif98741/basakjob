@@ -30,12 +30,12 @@
           </div>   
           <div class="col-md-2">
 
-
+<!-- 
             <div class="save-job">
               <a href="javascript:;" onclick="alert('Please Login to Save')"><i class="fa fa-floppy-o"></i> Save Job</a>
             </div>
 
-
+ -->
           </div> 
           <div class="entry-meta mtop40">
            <div class="col-md-12"> <span class="posted-on"><i class="fa fa-map-marker"></i> <span class="entry-date">
@@ -45,9 +45,23 @@
         <div class="bot-align">
          <ul>
 
-          <li><a href="jobsseeker-login783a.html?jid=31530696765&amp;setcok" target="_blank" onClick="javascript:window.close();">
-            <input type="button" name="loginto" value="Login to Apply"  class="btn-blue btn"/></a></li>  
-            <li><a href="jobseeker-registration14eb.html?setco" class="btn-gre btn"> Register and Apply </a></li> 
+          <?php if(!$this->session->employeelogin): ?>
+
+          <li><a href="<?php echo base_url();?>employee/login" target="_blank" onClick="javascript:window.close();">
+            <input type="button" name="loginto" value="Login to Apply"  class="btn-blue btn"/></a></li>
+
+            <li><a href="<?php echo base_url(); ?>employee/registration" class="btn-gre btn"> Register and Apply </a></li> 
+
+            <?php else: ?>
+
+               <li><a href="<?php echo base_url(); ?>employee/registration" class="btn-gre btn">Apply </a></li> 
+               <small>Are you are loggin, your current details will be used as application information</small>
+
+
+          <?php endif; ?>
+
+
+            
             <!--<li><input class="btn-gray btn" value="Apply without Registration" type="button"> </li>-->
           </ul> 
         </div> 
@@ -82,14 +96,14 @@
                          <div class="key">
                            <ul>
                             <?php 
-                              $explodes = explode(',', $job[0]->skill);
-                              foreach ( $explodes as $explode) { ?>
-                                
-                            
+                            $explodes = explode(',', $job[0]->skill);
+                            foreach ( $explodes as $explode) { ?>
+
+
                              <li><input class="btn-grey btn" value="<?php echo $explode; ?> " type="button"></li>
 
-                             <?php  } ?>
-                             
+                           <?php  } ?>
+
 
                                              <!-- <li><input class="btn-grey btn" value="Draftsman Activities" type="button"> </li>  
                                               <li><input class="btn-grey btn" value="Design " type="button"></li> 

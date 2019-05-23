@@ -31,6 +31,8 @@ class Registration extends CI_Controller
         redirect('/');
 
     }
+
+    
      /*
     !--------------------------------------------------------
     !     registration   Homepage

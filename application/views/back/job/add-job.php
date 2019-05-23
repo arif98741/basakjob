@@ -92,6 +92,23 @@
             </div>
           </div>
 
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Job Type </label>
+            <div class="col-sm-9">
+              <select name="job_type" id="" class="form-control">
+                <option value="">Select Option</option>
+
+                <option value="Government Job">Government Job</option>
+                <option value="Local Job">Local Job</option>
+                <option value="Overseas Job">Overseas Job</option>
+
+                
+              </select>
+            </div>
+          </div>
+
+          
+
 
           <div class="form-group row">
             <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Skill</label>

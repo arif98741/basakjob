@@ -48,19 +48,33 @@ $route['admin/delete-page/(:num)']		= 'page/delete_page/$1';
 
 
 
-$route['jobs']				 	= 'publicview/jobs';
-$route['page/contact-us']			= 'publicview/jobs';
 $route['jobs/(:num)'] 			= 'publicview/job_single/$1';
-$route['jobs/search']		 	= 'publicview/search_job';
-$route['jobs/category']			= 'publicview/jobs_category';
 $route['jobs/job_single/(:num)']= 'publicview/job_single/$1';
 $route['profile']	       		= 'registration/profile';
 $route['registration']	   		= 'registration/registration';
 $route['login']	  		   		= 'registration/login';
 $route['logout']	  	    	= 'registration/logout';
+$route['page/(:num)/(:any)']	= 'publicview/view_page/$1/$2';
+$route['jobs/search']		 	= 'search/index';
 
+$route['jobs']				 			= 'search/all_jobs';
+$route['jobs/all']				 		= 'search/all_jobs';
+$route['jobs/category/(:num)/(:any)']	= 'search/jobs_category/$1/$2';
+$route['jobs/job-type/(:any)']			= 'search/jobs_type/$1';
+$route['jobs/search_result/(:any)']	    = 'search/search_result';
+
+
+/*
+	!-------------------------------------------
+	! Employee
+	!-------------------------------------------
+*/
+$route['registration']	   		= 'employee/registration';	
 
 $route['404_override'] 		   = 'error404'; //override by controller
 $route['translate_uri_dashes'] = FALSE;
+
+
+
 
 

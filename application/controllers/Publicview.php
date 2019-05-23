@@ -24,6 +24,7 @@ class Publicview extends CI_Controller
     */
     public function index()
     {
+        $data['title']      = "Homepage";
         $data['jobcats'] = $this->db->order_by('jobcat_name')->get('tbl_job_category')->result_object();
 
         $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
@@ -32,6 +33,15 @@ class Publicview extends CI_Controller
 
         $data['designations']  = $this->db->order_by('designation_name','asc')->get('tbl_designation')->result_object();
         $data['categories']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
+
+        $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
+        $this->db->select('count(tbl_job.job_id) as total,tbl_job_category.jobcat_name as category_name,tbl_job_category.jobcat_id as job_category');
+        $this->db->group_by('tbl_job.jobcat_id'); 
+        $data['category_lists']  = $this->db->order_by('tbl_job.job_id','desc')->get('tbl_job')->result_object();
+
+        //echo '<pre>';
+        //print_r($data['categy_list']); die;
+
         
         $data['totaljob'] = $this->countermodel->totaljob();
         $data['totalcategory'] = $this->countermodel->totalcategory();
@@ -53,6 +63,7 @@ class Publicview extends CI_Controller
     */
     public function jobs()
     {
+        $data['title']      = "Jobs";
         $data['jobcats']  = $this->db->get('tbl_job_category')->result_object();
         $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
         $data['jobs']  = $this->db->order_by('job_id','desc')->get('tbl_job')->result_object();
@@ -70,6 +81,7 @@ class Publicview extends CI_Controller
     */
     public function job_single($id, $slug = '')
     {
+        $data['title']      = "View Job";
         //echo $id; die;
         $this->db->join('tbl_job_category','tbl_job_category.jobcat_id = tbl_job.jobcat_id');
         $this->db->join('tbl_company','tbl_company.company_id = tbl_job.company_id');
@@ -89,70 +101,20 @@ class Publicview extends CI_Controller
     ! Job Search
     !-----------------------------------------
     */
-    public function search_job()
+    public function view_page($id, $slug="")
     {
-        $search = '';
-        $data['searchkey'] = '';
-        $this->db->join('tbl_job_category','tbl_job.jobcat_id = tbl_job_category.jobcat_id');
-        $this->db->join('tbl_company','tbl_job.company_id = tbl_company.company_id');
-
-        if (isset($_GET['location'])) {
-
-            $data['searchkey']  .= "Location: ".$this->input->get('location');
-            $this->db->or_like('tbl_job.location', $this->input->get('location'));
-
-        } elseif(isset($_GET['category'])){
-
-            $data['searchkey']  .= ". Category: ".$this->input->get('category');
-            $this->db->or_like('tbl_job_category.jobcat_name', $this->input->get('category'));
-
-        }elseif(isset($_GET['salary_starting'])  && isset($_GET['salary_ending'])){
-
-            $data['searchkey']  .= ". Starting Salary: ".$this->input->get('salary_starting'). " and Ending Salary ".$this->input->get('salary_ending');
-
-            $this->db->where('tbl_job.salary >=', $this->input->get('salary_starting'));
-            $this->db->where('tbl_job.salary <=', $this->input->get('salary_ending'));
+        $data['title']      = str_replace("-", " ", ucfirst($slug));
+        $this->db->where('id',$id);
+        if ($id == 100) {
+            $data['page']  = $this->db->get('pages')->result_object();
+            $this->load->view('public/lib/header',$data);
+            $this->load->view('public/page/contact');
+            $this->load->view('public/lib/footer'); 
         }else{
-            $data['searchkey']  .= $search;
-            $this->db->like('job_title', $this->input->get('search'));
-            $this->db->or_like('tbl_job.location', $this->input->get('search'));
-            $this->db->or_like('salary_starting', $this->input->get('search'));
+            $data['page']  = $this->db->get('pages')->result_object();
+            $this->load->view('public/lib/header',$data);
+            $this->load->view('public/page/page_single');
+            $this->load->view('public/lib/footer'); 
         }
-
-        $this->db->order_by('job_id','desc')->limit(10);
-        $data['jobs']  = $this->db->get('tbl_job')->result();
-       
-        $data['jobcats']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
-        
-
-        $this->load->view('public/lib/header',$data);
-        $this->load->view('public/search');
-        $this->load->view('public/lib/footer'); 
     }
-
-       /*
-    !-----------------------------------------
-    ! Job Search
-    !-----------------------------------------
-    */
-    public function jobs_category($category="")
-    {
-       // echo $this->input->get('category'); die;
-        $this->db->join('tbl_job_category','tbl_job.jobcat_id = tbl_job_category.jobcat_id');
-        $this->db->where('tbl_job_category.jobcat_name',$this->input->get('category'));
-        $this->db->order_by('job_id','desc')->limit(10);
-        $data['jobs']  = $this->db->get('tbl_job')->result();
-       
-        $data['jobcats']  = $this->db->order_by('jobcat_name','asc')->get('tbl_job_category')->result_object();
-        $data['category'] = $this->input->get('category');
-
-        $this->load->view('public/lib/header',$data);
-        $this->load->view('public/jobs_category');
-        $this->load->view('public/lib/footer'); 
-    }
-
-
-    
-
-
 }

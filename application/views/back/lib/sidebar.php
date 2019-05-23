@@ -27,6 +27,11 @@
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Dashboard</span>
             </a>
+            <a class="nav-link" href="<?php echo base_url(); ?>admin/logout" onclick="return(confirm('will you logout ?'))">
+              <i class="menu-icon mdi mdi-mouse"></i>
+              <span class="menu-title">Logout</span>
+            </a>
+            
           </li>
 
 
@@ -145,7 +150,6 @@
               </ul>
             </div>
           </li>
-          
 
 
 

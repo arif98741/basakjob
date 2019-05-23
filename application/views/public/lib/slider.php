@@ -1,117 +1,117 @@
 
 
-			<!-- Main Banner Section Start -->	
-			<div>	 
+<!-- Main Banner Section Start -->	
+<div>	 
 
-				<div class="banner" style="background-image:url(<?php echo base_url(); ?>asset/public/assets1/img/banner-9.jpg);background-position:top;">
-					<div class="container">
-						<div class="banner-caption">
-							<div class="col-md-12 col-sm-12 banner-text">
-								<h1>Browse Jobs</h1>
-								<form class="form-horizontal" action="" name="homeadvancesearch" method="GET">
-									<div class="col-md-4 no-padd">
-										<div class="input-group">
-											<input class="form-control right-bor" id="keyword" name="refkeyword" type="text"  placeholder="Skills, Designations, Companies" value=''>
-										</div>
-									</div>
-									<div class="col-md-3 no-padd">
-										<div class="input-group">
-											<input class="form-control right-bor" id="location" autocomplete="off" name="reflocation"  type="text" value='' placeholder="Search By Location..">
-										</div>
-									</div>
-									<div class="col-md-3 no-padd">
-										<div class="input-group">
-											<select id="category" name="category" class="form-control ">
+	<div class="banner" style="background-image:url(<?php echo base_url(); ?>asset/public/assets1/img/banner-9.jpg);background-position:top;">
+		<div class="container">
+			<div class="banner-caption">
+				<div class="col-md-12 col-sm-12 banner-text">
+					<h1>Browse Jobs</h1>
+					<form class="form-horizontal" action="<?php echo base_url();?>jobs/search_result/view?multiskill=234&location=24&category=13" name="homeadvancesearch" method="GET">
+						<div class="col-md-4 no-padd">
+							<div class="input-group">
+								<input class="form-control right-bor" id="keyword" name="multiskill" type="text"  placeholder="Skills, Designations, Companies" value=''>
+							</div>
+						</div>
+						<div class="col-md-3 no-padd">
+							<div class="input-group">
+								<input class="form-control right-bor" id="location" autocomplete="off" name="location"  type="text" value='' placeholder="Search By Location..">
+							</div>
+						</div>
+						<div class="col-md-3 no-padd">
+							<div class="input-group">
+								<select id="category" name="category" class="form-control ">
 
-												<option value="">select category</option>
-												<?php 
-													foreach ($categories as $category) { ?>
-														<option value="<?php echo $category->jobcat_id; ?>"><?php echo $category->jobcat_name; ?></option>
+									<option value="">select category</option>
+									<?php 
+									foreach ($categories as $category) { ?>
+										<option value="<?php echo $category->jobcat_id; ?>"><?php echo $category->jobcat_name; ?></option>
 									<?php		}?>
-												
-											</select>
-										</div>
-									</div>
-									<div class="col-md-2 no-padd">
-										<div class="input-group">
-											<button class="btn btn-primary" id="homeadvsearch" type="submit" name="homeadvsearch" value="Search">Search Job</button>
-											<span class="avd"><a href="advancesearch.html">Advanced Search</a></span>
-										</div>
-									</div>
-								</form>
+
+								</select>
 							</div>
 						</div>
-					</div>   
-					<div class="company-brand">
-						<div class="container">
-							<div id="company-brands" class="owl-carousel">
-								<div class="brand-img">
-									<a href="http://www.capgemini.com/">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1546865895.jpg" width="136" height="34" class="img-responsive" title="Capgemini" />
-									</a>
-								</div>
-								<div class="brand-img">
-									<a href="https://www.google.com/">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1546865908.jpg" width="136" height="34" class="img-responsive" title="Google" />
-									</a>
-								</div>
-								<div class="brand-img">
-									<a href="https://www.cognizant.com/">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1546865920.jpg" width="136" height="34" class="img-responsive" title="Cognizant" />
-									</a>
-								</div>
-								<div class="brand-img">
-									<a href="https://www.amazon.com/">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1546865937.jpg" width="136" height="34" class="img-responsive" title="Amazon" />
-									</a>
-								</div>
-								<div class="brand-img">
-									<a href="https://www.infosys.com/">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1546865954.jpg" width="136" height="34" class="img-responsive" title="Infosys" />
-									</a>
-								</div>
-								<div class="brand-img">
-									<a href="https://www.hcltech.com/">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1546865967.jpg" width="136" height="34" class="img-responsive" title="HCL" />
-									</a>
-								</div>
-								<div class="brand-img">
-									<a href="https://www.kotak.com/en.html">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1527831399.gif" width="136" height="34" class="img-responsive" title="KOTAK" />
-									</a>
-								</div>
-								<div class="brand-img">
-									<a href="https://www.microsoft.com/">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1546865988.jpg" width="136" height="34" class="img-responsive" title="Microsoft" />
-									</a>
-								</div>
-								<div class="brand-img">
-									<a href="https://www2.deloitte.com/in/en.html">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1527831479.gif" width="136" height="34" class="img-responsive" title="Deloitee" />
-									</a>
-								</div>
-								<div class="brand-img">
-									<a href="https://hexaware.com/">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1546866011.jpg" width="136" height="34" class="img-responsive" title="Hexaware" />
-									</a>
-								</div>
-								<div class="brand-img">
-									<a href="https://www.accenture.com/in-en/new-applied-now">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1527831564.gif" width="136" height="34" class="img-responsive" title="Accenture" />
-									</a>
-								</div>
-								<div class="brand-img">
-									<a href="https://www.intel.in/">
-										<img src="<?php echo base_url(); ?>asset/public/adimages/1527845906.gif" width="136" height="34" class="img-responsive" title="Intel" />
-									</a>
-								</div>
-
-
+						<div class="col-md-2 no-padd">
+							<div class="input-group">
+								<button type="submit" style="cursor: pointer;" class="btn btn-primary" id="homeadvsearch" type="submit" name="homeadvsearch" value="Search">Search Job</button>
+								<span class="avd"><a href="advancesearch.html">Advanced Search</a></span>
 							</div>
 						</div>
-					</div>	
-				</div> 	 
-			</div> 
+					</form>
+				</div>
+			</div>
+		</div>   
+		<div class="company-brand">
+			<div class="container">
+				<div id="company-brands" class="owl-carousel">
+					<div class="brand-img">
+						<a href="http://www.capgemini.com/">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1546865895.jpg" width="136" height="34" class="img-responsive" title="Capgemini" />
+						</a>
+					</div>
+					<div class="brand-img">
+						<a href="https://www.google.com/">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1546865908.jpg" width="136" height="34" class="img-responsive" title="Google" />
+						</a>
+					</div>
+					<div class="brand-img">
+						<a href="https://www.cognizant.com/">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1546865920.jpg" width="136" height="34" class="img-responsive" title="Cognizant" />
+						</a>
+					</div>
+					<div class="brand-img">
+						<a href="https://www.amazon.com/">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1546865937.jpg" width="136" height="34" class="img-responsive" title="Amazon" />
+						</a>
+					</div>
+					<div class="brand-img">
+						<a href="https://www.infosys.com/">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1546865954.jpg" width="136" height="34" class="img-responsive" title="Infosys" />
+						</a>
+					</div>
+					<div class="brand-img">
+						<a href="https://www.hcltech.com/">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1546865967.jpg" width="136" height="34" class="img-responsive" title="HCL" />
+						</a>
+					</div>
+					<div class="brand-img">
+						<a href="https://www.kotak.com/en.html">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1527831399.gif" width="136" height="34" class="img-responsive" title="KOTAK" />
+						</a>
+					</div>
+					<div class="brand-img">
+						<a href="https://www.microsoft.com/">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1546865988.jpg" width="136" height="34" class="img-responsive" title="Microsoft" />
+						</a>
+					</div>
+					<div class="brand-img">
+						<a href="https://www2.deloitte.com/in/en.html">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1527831479.gif" width="136" height="34" class="img-responsive" title="Deloitee" />
+						</a>
+					</div>
+					<div class="brand-img">
+						<a href="https://hexaware.com/">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1546866011.jpg" width="136" height="34" class="img-responsive" title="Hexaware" />
+						</a>
+					</div>
+					<div class="brand-img">
+						<a href="https://www.accenture.com/in-en/new-applied-now">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1527831564.gif" width="136" height="34" class="img-responsive" title="Accenture" />
+						</a>
+					</div>
+					<div class="brand-img">
+						<a href="https://www.intel.in/">
+							<img src="<?php echo base_url(); ?>asset/public/adimages/1527845906.gif" width="136" height="34" class="img-responsive" title="Intel" />
+						</a>
+					</div>
+
+
+				</div>
+			</div>
+		</div>	
+	</div> 	 
+</div> 
          <!-- Scripts
          	================================================== -->
          	<script type="text/javascript" src="<?php echo base_url(); ?>asset/public/js/jquery.min.js"></script>
